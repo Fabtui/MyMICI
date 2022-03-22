@@ -1,0 +1,8 @@
+<h1>Poohs#new</h1>
+<p>Find me in app/views/poohs/new.html.erb</p>
+
+<%= simple_form_for [ @day, @pooh ] do |f| %>
+  <%= f.input :blood %>
+  <%= f.input :rate, collection: 0..10 %>
+  <%= f.submit "Ajouter un pooh à ma journée", class: "btn btn-primary" %>
+<% end %>
