@@ -1,0 +1,8 @@
+<h1>Days#update</h1>
+<p>Find me in app/views/days/update.html.erb</p>
+
+<%= simple_form_for @day do |f| %>
+  <%= f.input :pain_rate %>
+  <%= f.input :comment %>
+  <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
+<% end %>
