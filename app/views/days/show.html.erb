@@ -1,9 +1,24 @@
-<h1>Days#show</h1>
-<p>Find me in app/views/days/show.html.erb</p>
+<h1><%= @day.date.strftime("%d %A %Y") %></h1>
+
+<h3>Aujourd'hui:</h3>
+<% if @day.pain_rate.nil? && @day.comment.blank? %>
+  <h4>Aucune information enregistrée</h4>
+<% else %>
+  <% if @day.pain_rate %>
+    <h4>Douleur: <%= @day.pain_rate %>/10</h4>
+  <% end %>
+  <% if @day.comment %>
+    <h4><%= @day.comment %></h4>
+  <% end %>
+<% end %>
+
+<%= link_to "Comment te sents tu aujourd'hui?", edit_day_path(@day.id) %>
+
+<br/>
 
 <%= link_to "Ajouter un Pooh", new_day_pooh_path(@day.id) %>
 <br/>
-<h3><%= @day.pooh.count %> <%= 'selle'.pluralize(@day.pooh.count + 1) %> aujourd'hui :</h3>
+<h3><%= @day.pooh.count %> <%= 'selle'.pluralize(@day.pooh.count + 1) %> aujourd'hui</h3>
 <% @day.pooh.each do |pooh| %>
   <% if pooh.blood %>
     <i class="fas fa-circle red-circle"><%= pooh.rate %></i>
