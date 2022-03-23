@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :days do
     resources :poohs
+    resources :meals
   end
   devise_for :users
   root to: 'pages#home'
