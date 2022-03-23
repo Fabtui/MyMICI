@@ -41,4 +41,6 @@
 <%= link_to "Créer une nouvelle journée", new_day_path %>
 <br/>
 
-<h3><%= @day.total_cal %> <%= "calorie".pluralize(@day.total_cal) %> aujourd'hui</h3>
+<h3><%= @day.total('energykcal') %> <%= "kilocalorie".pluralize(@day.total('energykcal')) %> aujourd'hui</h3>
+
+<h3><%= @day.total('eau') %> <%= "grammes".pluralize(@day.total('eau')) %> d'eau
