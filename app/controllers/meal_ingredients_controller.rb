@@ -13,7 +13,7 @@ class MealIngredientsController < ApplicationController
     if @meal_ingredient.save
       redirect_to day_meal_path(@day.id, @meal.id)
     else
-      redner :new
+      render :new
     end
 
   end

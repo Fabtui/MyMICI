@@ -1,0 +1,275 @@
+<%= @ingredient.name %>
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Energie (kJ/100 g)</th>
+      <td><%= @ingredient.energykj %></td>
+    </tr>
+    <tr>
+      <th scope="row">Energie (kcal/100 g)</th>
+      <td><%= @ingredient.energykcal %></td>
+    </tr>
+    <tr>
+      <th scope="row">Energie, N x facteur Jones, avec fibres  (kJ/100 g)</th>
+      <td><%= @ingredient.energyfibrekj %></td>
+    </tr>
+    <tr>
+      <th scope="row">Energie, N x facteur Jones, avec fibres (kcal/100 g)</th>
+      <td><%= @ingredient.energyfibrekcal %></td>
+    </tr>
+    <tr>
+      <th scope="row">Eau (g/100 g)</th>
+      <td><%= @ingredient.eau %></td>
+    </tr>
+    <tr>
+      <th scope="row">Protéines, N x facteur de Jones (g/100 g)</th>
+      <td><%= @ingredient.proteinesjones %></td>
+    </tr>
+    <tr>
+      <th scope="row">Protéines, N x 6.25 (g/100 g)</th>
+      <td><%= @ingredient.proteines %></td>
+    </tr>
+    <tr>
+      <th scope="row">Glucides (g/100 g)</th>
+      <td><%= @ingredient.glucides %></td>
+    </tr>
+    <tr>
+      <th scope="row">Lipides (g/100 g)</th>
+      <td><%= @ingredient.lipides %></td>
+    </tr>
+    <tr>
+      <th scope="row">Sucres (g/100 g)</th>
+      <td><%= @ingredient.sucres %></td>
+    </tr>
+    <tr>
+      <th scope="row">Fructose (g/100 g)</th>
+      <td><%= @ingredient.fructose %></td>
+    </tr>
+    <tr>
+      <th scope="row">Galactose (g/100 g)</th>
+      <td><%= @ingredient.galactos %></td>
+    </tr>
+    <tr>
+      <th scope="row">Glucose (g/100 g)</th>
+      <td><%= @ingredient.glucose %></td>
+    </tr>
+    <tr>
+      <th scope="row">Lactose (g/100 g)</th>
+      <td><%= @ingredient.lactose %></td>
+    </tr>
+    <tr>
+      <th scope="row">Maltose (g/100 g)</th>
+      <td><%= @ingredient.maltose %></td>
+    </tr>
+    <tr>
+      <th scope="row">Saccharose (g/100 g)</th>
+      <td><%= @ingredient.saccharose %></td>
+    </tr>
+    <tr>
+      <th scope="row">Amidon (g/100 g)</th>
+      <td><%= @ingredient.amidon %></td>
+    </tr>
+    <tr>
+      <th scope="row">Fibres alimentaires (g/100 g)</th>
+      <td><%= @ingredient.fibres %></td>
+    </tr>
+    <tr>
+      <th scope="row">Polyols totaux (g/100 g)</th>
+      <td><%= @ingredient.polyols %></td>
+    </tr>
+    <tr>
+      <th scope="row">Cendres (g/100 g)</th>
+      <td><%= @ingredient.cendres %></td>
+    </tr>
+    <tr>
+      <th scope="row">Alcool (g/100 g)</th>
+      <td><%= @ingredient.alcool %></td>
+    </tr>
+    <tr>
+      <th scope="row">Acides organiques (g/100 g)</th>
+      <td><%= @ingredient.acideorganiques %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG saturés (g/100 g)</th>
+      <td><%= @ingredient.agsatures %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG monoinsaturés (g/100 g)</th>
+      <td><%= @ingredient.agmonoinsature %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG polyinsaturés (g/100 g)</th>
+      <td><%= @ingredient.agpolyinsature %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">AG 4:0, butyrique (g/100 g)</th>
+      <td><%= @ingredient.agbutyrique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 6:0, caproïque (g/100 g)</th>
+      <td><%= @ingredient.agcaproique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 8:0, caprylique (g/100 g)</th>
+      <td><%= @ingredient.agcaprylique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 10:0, caprique (g/100 g)</th>
+      <td><%= @ingredient.agcaprique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 12:0, laurique (g/100 g)</th>
+      <td><%= @ingredient.aglaurique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 14:0, myristique (g/100 g)</th>
+      <td><%= @ingredient.agmyristique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 16:0, palmitique (g/100 g)</th>
+      <td><%= @ingredient.agpalmitique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 18:0, stéarique (g/100 g)</th>
+      <td><%= @ingredient.agstearique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 18:1 9c (n-9), oléique (g/100 g)</th>
+      <td><%= @ingredient.agoleique %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">AG 18:2 9c,12c (n-6), linoléique (g/100 g)</th>
+      <td><%= @ingredient.aglinoeique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 18:3 c9,c12,c15 (n-3), alpha-linolénique (g/100 g)</th>
+      <td><%= @ingredient.agalphalinolenique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 20:4 5c,8c,11c,14c (n-6), arachidonique (g/100 g)</th>
+      <td><%= @ingredient.agarachidoneique %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 20:5 5c,8c,11c,14c,17c (n-3) EPA (g/100 g)</th>
+      <td><%= @ingredient.ageap %></td>
+    </tr>
+    <tr>
+      <th scope="row">AG 22:6 4c,7c,10c,13c,16c,19c (n-3) DHA (g/100 g)</th>
+      <td><%= @ingredient.agdha %></td>
+    </tr>
+    <tr>
+      <th scope="row">Cholestérol (mg/100 g)</th>
+      <td><%= @ingredient.cholesterole %></td>
+    </tr>
+    <tr>
+      <th scope="row">Sel chlorure de sodium (g/100 g)</th>
+      <td><%= @ingredient.sel %></td>
+    </tr>
+    <tr>
+      <th scope="row">Calcium (mg/100 g)</th>
+      <td><%= @ingredient.calcium %></td>
+    </tr>
+    <tr>
+      <th scope="row">Chlorure (mg/100 g)</th>
+      <td><%= @ingredient.chlorure %></td>
+    </tr>
+    <tr>
+      <th scope="row">Cuivre (mg/100 g)</th>
+      <td><%= @ingredient.cuivre %></td>
+    </tr>
+    <tr>
+      <th scope="row">Fer (mg/100 g)</th>
+      <td><%= @ingredient.fer %></td>
+    </tr>
+    <tr>
+      <th scope="row">Iode (µg/100 g)</th>
+      <td><%= @ingredient.iode %></td>
+    </tr>
+    <tr>
+      <th scope="row">Magnésium (mg/100 g)</th>
+      <td><%= @ingredient.magnesium %></td>
+    </tr>
+    <tr>
+      <th scope="row">Manganèse (mg/100 g)</th>
+      <td><%= @ingredient.manganese %></td>
+    </tr>
+    <tr>
+      <th scope="row">Phosphore (mg/100 g)</th>
+      <td><%= @ingredient.phosphore %></td>
+    </tr>
+    <tr>
+      <th scope="row">Potassium (mg/100 g)</th>
+      <td><%= @ingredient.potassium %></td>
+    </tr>
+    <tr>
+      <th scope="row">Sélénium (µg/100 g)</th>
+      <td><%= @ingredient.selenium %></td>
+    </tr>
+    <tr>
+      <th scope="row">Sodium (mg/100 g)</th>
+      <td><%= @ingredient.sodium %></td>
+    </tr>
+    <tr>
+      <th scope="row">Zinc (mg/100 g)</th>
+      <td><%= @ingredient.zinc %></td>
+    </tr>
+    <tr>
+      <th scope="row">Rétinol (µg/100 g)</th>
+      <td><%= @ingredient.retinol %></td>
+    </tr>
+    <tr>
+      <th scope="row">Beta-Carotène (µg/100 g)</th>
+      <td><%= @ingredient.betacarotene %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine D (µg/100 g)</th>
+      <td><%= @ingredient.vitamineD %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine E (mg/100 g)</th>
+      <td><%= @ingredient.vitamineE %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine K1 (µg/100 g)</th>
+      <td><%= @ingredient.vitamineK1 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine K2 (µg/100 g)</th>
+      <td><%= @ingredient.vitamineK2 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine C (mg/100 g)</th>
+      <td><%= @ingredient.vitamineC %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B1 ou Thiamine (mg/100 g)</th>
+      <td><%= @ingredient.vitamineB1 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B2 ou Riboflavine (mg/100 g)</th>
+      <td><%= @ingredient.vitamineB2 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B3 ou PP ou Niacine (mg/100 g)</th>
+      <td><%= @ingredient.vitamineB3 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B5 ou Acide pantothénique (mg/100 g)</th>
+      <td><%= @ingredient.vitamineB5 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B6 (mg/100 g)</th>
+      <td><%= @ingredient.vitamineB6 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B9 ou Folates totaux (µg/100 g)</th>
+      <td><%= @ingredient.vitamineB9 %></td>
+    </tr>
+    <tr>
+      <th scope="row">Vitamine B12 (µg/100 g)</th>
+      <td><%= @ingredient.vitamineB12 %></td>
+    </tr>
+  </tbody>
+</table>
