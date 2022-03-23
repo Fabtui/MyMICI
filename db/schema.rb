@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 2022_03_23_134220) do
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
-  create_table "foods", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.string "group1"
     t.string "group2"
@@ -108,15 +102,6 @@ ActiveRecord::Schema.define(version: 2022_03_23_134220) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "meal_foods", force: :cascade do |t|
-    t.bigint "food_id", null: false
-    t.bigint "meal_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_id"], name: "index_meal_foods_on_food_id"
-    t.index ["meal_id"], name: "index_meal_foods_on_meal_id"
-  end
-
   create_table "meal_ingredients", force: :cascade do |t|
     t.bigint "ingredient_id", null: false
     t.bigint "meal_id", null: false
@@ -166,8 +151,6 @@ ActiveRecord::Schema.define(version: 2022_03_23_134220) do
   end
 
   add_foreign_key "days", "users"
-  add_foreign_key "meal_foods", "foods"
-  add_foreign_key "meal_foods", "meals"
   add_foreign_key "meal_ingredients", "ingredients"
   add_foreign_key "meal_ingredients", "meals"
   add_foreign_key "meals", "days"

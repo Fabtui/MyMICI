@@ -1,7 +1,4 @@
 <h1><%= @meal.type %> du <%= @meal.date.strftime("%d %A %Y") %></h1>
-<% @meal.foods.each do |food| %>
-  <%= food.name %>
-<% end %>
 
 <%= link_to "Ajouter un plat", new_day_meal_meal_ingredient_path(@meal.day.id, @meal.id) %>
 

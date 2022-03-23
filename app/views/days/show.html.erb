@@ -1,6 +1,5 @@
 <h1><%= @day.date.strftime("%d %A %Y") %></h1>
 
-<h3>Aujourd'hui:</h3>
 <% if @day.pain_rate.nil? && @day.comment.blank? %>
   <h4>Aucune information enregistrée</h4>
 <% else %>
@@ -12,11 +11,11 @@
   <% end %>
 <% end %>
 
-<%= link_to "Comment te sents tu aujourd'hui?", edit_day_path(@day.id) %>
+<%= link_to "Comment te sentais tu ?", edit_day_path(@day.id) %>
 
 <br/>
 
-<%= link_to "Ajouter un Pooh", new_day_pooh_path(@day.id) %>
+<%= link_to "Ajouter un Pooh pour cette journée", new_day_pooh_path(@day.id) %>
 <br/>
 <h3><%= @day.pooh.count %> <%= 'selle'.pluralize(@day.pooh.count + 1) %> aujourd'hui</h3>
 <% @day.pooh.each do |pooh| %>
@@ -27,7 +26,7 @@
   <% end %>
 <% end %>
 <br/>
-<%= link_to "Ajouter un repas", new_day_meal_path(@day.id) %>
+<%= link_to "Ajouter un repas pour cette journée", new_day_meal_path(@day.id) %>
 <br/>
 <% @day.meals.each do |meal| %>
   <%= link_to meal.type, day_meal_path(@day.id, meal.id) %>
