@@ -1,275 +1,350 @@
-<%= @ingredient.name %>
+<%= @ingredient.name %> <%= @meal_ingredient.quantity.round %>g
 <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">pour 100g</th>
+      <th scope="col">pour <%= @meal_ingredient.quantity.round %>g</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <th scope="row">Energie (kJ/100 g)</th>
       <td><%= @ingredient.energykj %></td>
+      <td><%= (@ingredient.energykj * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Energie (kcal/100 g)</th>
       <td><%= @ingredient.energykcal %></td>
+      <td><%= (@ingredient.energykcal * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Energie, N x facteur Jones, avec fibres  (kJ/100 g)</th>
       <td><%= @ingredient.energyfibrekj %></td>
+      <td><%= (@ingredient.energyfibrekj * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Energie, N x facteur Jones, avec fibres (kcal/100 g)</th>
       <td><%= @ingredient.energyfibrekcal %></td>
+      <td><%= (@ingredient.energyfibrekcal * (@meal_ingredient.quantity / 100)).round %></td>
+
     </tr>
     <tr>
       <th scope="row">Eau (g/100 g)</th>
       <td><%= @ingredient.eau %></td>
+      <td><%= (@ingredient.eau * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Protéines, N x facteur de Jones (g/100 g)</th>
       <td><%= @ingredient.proteinesjones %></td>
+      <td><%= (@ingredient.proteinesjones * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Protéines, N x 6.25 (g/100 g)</th>
       <td><%= @ingredient.proteines %></td>
+      <td><%= (@ingredient.proteines * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Glucides (g/100 g)</th>
       <td><%= @ingredient.glucides %></td>
+      <td><%= (@ingredient.glucides * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Lipides (g/100 g)</th>
       <td><%= @ingredient.lipides %></td>
+      <td><%= (@ingredient.lipides * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Sucres (g/100 g)</th>
       <td><%= @ingredient.sucres %></td>
+      <td><%= (@ingredient.sucres * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Fructose (g/100 g)</th>
       <td><%= @ingredient.fructose %></td>
+      <td><%= (@ingredient.fructose * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Galactose (g/100 g)</th>
       <td><%= @ingredient.galactos %></td>
+      <td><%= (@ingredient.galactos * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Glucose (g/100 g)</th>
       <td><%= @ingredient.glucose %></td>
+      <td><%= (@ingredient.glucose * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Lactose (g/100 g)</th>
       <td><%= @ingredient.lactose %></td>
+      <td><%= (@ingredient.lactose * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Maltose (g/100 g)</th>
       <td><%= @ingredient.maltose %></td>
+      <td><%= (@ingredient.maltose * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Saccharose (g/100 g)</th>
       <td><%= @ingredient.saccharose %></td>
+      <td><%= (@ingredient.saccharose * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Amidon (g/100 g)</th>
       <td><%= @ingredient.amidon %></td>
+      <td><%= (@ingredient.amidon * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Fibres alimentaires (g/100 g)</th>
       <td><%= @ingredient.fibres %></td>
+      <td><%= (@ingredient.fibres * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Polyols totaux (g/100 g)</th>
       <td><%= @ingredient.polyols %></td>
+      <td><%= (@ingredient.polyols * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Cendres (g/100 g)</th>
       <td><%= @ingredient.cendres %></td>
+      <td><%= (@ingredient.cendres * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Alcool (g/100 g)</th>
       <td><%= @ingredient.alcool %></td>
+      <td><%= (@ingredient.alcool * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Acides organiques (g/100 g)</th>
       <td><%= @ingredient.acideorganiques %></td>
+      <td><%= (@ingredient.acideorganiques * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG saturés (g/100 g)</th>
       <td><%= @ingredient.agsatures %></td>
+      <td><%= (@ingredient.agsatures * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG monoinsaturés (g/100 g)</th>
       <td><%= @ingredient.agmonoinsature %></td>
+      <td><%= (@ingredient.agmonoinsature * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG polyinsaturés (g/100 g)</th>
       <td><%= @ingredient.agpolyinsature %></td>
+      <td><%= (@ingredient.agpolyinsature * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
 
     <tr>
       <th scope="row">AG 4:0, butyrique (g/100 g)</th>
       <td><%= @ingredient.agbutyrique %></td>
+      <td><%= (@ingredient.agbutyrique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 6:0, caproïque (g/100 g)</th>
       <td><%= @ingredient.agcaproique %></td>
+      <td><%= (@ingredient.agcaproique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 8:0, caprylique (g/100 g)</th>
       <td><%= @ingredient.agcaprylique %></td>
+      <td><%= (@ingredient.agcaprylique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 10:0, caprique (g/100 g)</th>
       <td><%= @ingredient.agcaprique %></td>
+      <td><%= (@ingredient.agcaprique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 12:0, laurique (g/100 g)</th>
       <td><%= @ingredient.aglaurique %></td>
+      <td><%= (@ingredient.aglaurique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 14:0, myristique (g/100 g)</th>
       <td><%= @ingredient.agmyristique %></td>
+      <td><%= (@ingredient.agmyristique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 16:0, palmitique (g/100 g)</th>
       <td><%= @ingredient.agpalmitique %></td>
+      <td><%= (@ingredient.agpalmitique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 18:0, stéarique (g/100 g)</th>
       <td><%= @ingredient.agstearique %></td>
+      <td><%= (@ingredient.agstearique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 18:1 9c (n-9), oléique (g/100 g)</th>
       <td><%= @ingredient.agoleique %></td>
+      <td><%= (@ingredient.agoleique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
 
     <tr>
       <th scope="row">AG 18:2 9c,12c (n-6), linoléique (g/100 g)</th>
       <td><%= @ingredient.aglinoeique %></td>
+      <td><%= (@ingredient.aglinoeique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 18:3 c9,c12,c15 (n-3), alpha-linolénique (g/100 g)</th>
       <td><%= @ingredient.agalphalinolenique %></td>
+      <td><%= (@ingredient.agalphalinolenique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 20:4 5c,8c,11c,14c (n-6), arachidonique (g/100 g)</th>
       <td><%= @ingredient.agarachidoneique %></td>
+      <td><%= (@ingredient.agarachidoneique * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 20:5 5c,8c,11c,14c,17c (n-3) EPA (g/100 g)</th>
       <td><%= @ingredient.ageap %></td>
+      <td><%= (@ingredient.ageap * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">AG 22:6 4c,7c,10c,13c,16c,19c (n-3) DHA (g/100 g)</th>
       <td><%= @ingredient.agdha %></td>
+      <td><%= (@ingredient.agdha * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Cholestérol (mg/100 g)</th>
       <td><%= @ingredient.cholesterole %></td>
+      <td><%= (@ingredient.cholesterole * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Sel chlorure de sodium (g/100 g)</th>
       <td><%= @ingredient.sel %></td>
+      <td><%= (@ingredient.sel * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Calcium (mg/100 g)</th>
       <td><%= @ingredient.calcium %></td>
+      <td><%= (@ingredient.calcium * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Chlorure (mg/100 g)</th>
       <td><%= @ingredient.chlorure %></td>
+      <td><%= (@ingredient.chlorure * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Cuivre (mg/100 g)</th>
       <td><%= @ingredient.cuivre %></td>
+      <td><%= (@ingredient.cuivre * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Fer (mg/100 g)</th>
       <td><%= @ingredient.fer %></td>
+      <td><%= (@ingredient.fer * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Iode (µg/100 g)</th>
       <td><%= @ingredient.iode %></td>
+      <td><%= (@ingredient.iode * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Magnésium (mg/100 g)</th>
       <td><%= @ingredient.magnesium %></td>
+      <td><%= (@ingredient.magnesium * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Manganèse (mg/100 g)</th>
       <td><%= @ingredient.manganese %></td>
+      <td><%= (@ingredient.manganese * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Phosphore (mg/100 g)</th>
       <td><%= @ingredient.phosphore %></td>
+      <td><%= (@ingredient.phosphore * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Potassium (mg/100 g)</th>
       <td><%= @ingredient.potassium %></td>
+      <td><%= (@ingredient.potassium * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Sélénium (µg/100 g)</th>
       <td><%= @ingredient.selenium %></td>
+      <td><%= (@ingredient.selenium * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Sodium (mg/100 g)</th>
       <td><%= @ingredient.sodium %></td>
+      <td><%= (@ingredient.sodium * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Zinc (mg/100 g)</th>
       <td><%= @ingredient.zinc %></td>
+      <td><%= (@ingredient.zinc * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Rétinol (µg/100 g)</th>
       <td><%= @ingredient.retinol %></td>
+      <td><%= (@ingredient.retinol * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Beta-Carotène (µg/100 g)</th>
       <td><%= @ingredient.betacarotene %></td>
+      <td><%= (@ingredient.betacarotene * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine D (µg/100 g)</th>
       <td><%= @ingredient.vitamineD %></td>
+      <td><%= (@ingredient.vitamineD * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine E (mg/100 g)</th>
       <td><%= @ingredient.vitamineE %></td>
+      <td><%= (@ingredient.vitamineE * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine K1 (µg/100 g)</th>
       <td><%= @ingredient.vitamineK1 %></td>
+      <td><%= (@ingredient.vitamineK1 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine K2 (µg/100 g)</th>
       <td><%= @ingredient.vitamineK2 %></td>
+      <td><%= (@ingredient.vitamineK2 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine C (mg/100 g)</th>
       <td><%= @ingredient.vitamineC %></td>
+      <td><%= (@ingredient.vitamineC * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B1 ou Thiamine (mg/100 g)</th>
       <td><%= @ingredient.vitamineB1 %></td>
+      <td><%= (@ingredient.vitamineB1 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B2 ou Riboflavine (mg/100 g)</th>
       <td><%= @ingredient.vitamineB2 %></td>
+      <td><%= (@ingredient.vitamineB2 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B3 ou PP ou Niacine (mg/100 g)</th>
       <td><%= @ingredient.vitamineB3 %></td>
+      <td><%= (@ingredient.vitamineB3 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B5 ou Acide pantothénique (mg/100 g)</th>
       <td><%= @ingredient.vitamineB5 %></td>
+      <td><%= (@ingredient.vitamineB5 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B6 (mg/100 g)</th>
       <td><%= @ingredient.vitamineB6 %></td>
+      <td><%= (@ingredient.vitamineB6 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B9 ou Folates totaux (µg/100 g)</th>
       <td><%= @ingredient.vitamineB9 %></td>
+      <td><%= (@ingredient.vitamineB9 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
     <tr>
       <th scope="row">Vitamine B12 (µg/100 g)</th>
       <td><%= @ingredient.vitamineB12 %></td>
+      <td><%= (@ingredient.vitamineB12 * (@meal_ingredient.quantity / 100)).round %></td>
     </tr>
   </tbody>
 </table>

@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
-  before_action :create_day
+  # skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    create_day
+    date = Date.today.to_s
+    @day = Day.find_by_date(date)
   end
 
   private

@@ -5,6 +5,6 @@
 <br/>
 
 <% @meal.ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
   <br/>
+    <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, @meal.id, ingredient.id) %>
 <% end %>
