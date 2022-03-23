@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2022_03_22_154412) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.bigint "meal_type_id"
-    t.bigint "meal_id", null: false
+    t.bigint "meal_type_id", null: false
+    t.bigint "day_id", null: false
     t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["meal_id"], name: "index_meals_on_meal_id"
+    t.index ["day_id"], name: "index_meals_on_day_id"
     t.index ["meal_type_id"], name: "index_meals_on_meal_type_id"
   end
 
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_154412) do
   end
 
   add_foreign_key "days", "users"
+  add_foreign_key "meals", "days"
   add_foreign_key "meals", "meal_types"
-  add_foreign_key "meals", "meals"
   add_foreign_key "poohs", "days"
 end

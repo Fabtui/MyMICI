@@ -1,0 +1,6 @@
+<h1>Nouveau repas</h1>
+
+<%= simple_form_for [@day, @meal] do |f| %>
+  <%= f.input :meal_type_id, collection: MealType.all, label: 'Type de repas' %>
+  <%= f.submit "Ajouter un nouveau repas", class: "btn btn-primary" %>
+<% end %>
