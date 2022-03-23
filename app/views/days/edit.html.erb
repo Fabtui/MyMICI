@@ -2,7 +2,7 @@
 <p>Find me in app/views/days/update.html.erb</p>
 
 <%= simple_form_for @day do |f| %>
-  <%= f.input :pain_rate %>
+  <%= f.input :pain_rate, collection: 0..10 %>
   <%= f.input :comment %>
   <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
 <% end %>

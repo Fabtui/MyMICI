@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :days do
     resources :poohs
     resources :meals do
+      resources :ingredients
       resources :foods
       resources :meal_ingredients
     end

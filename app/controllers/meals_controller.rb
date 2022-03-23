@@ -4,6 +4,7 @@ class MealsController < ApplicationController
 
   def show
     @meal = Meal.find(params[:id])
+    @day = Day.find(params[:day_id])
   end
 
   def new
