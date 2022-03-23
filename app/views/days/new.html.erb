@@ -3,7 +3,5 @@
 
 <%= simple_form_for @day do |f| %>
   <%= f.input :date %>
-  <%= f.input :pain_rate, collection: 0..10 %>
-  <%= f.input :comment %>
   <%= f.submit "Créer une nouvelle journée", class: "btn btn-primary" %>
 <% end %>
