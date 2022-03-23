@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :poohs
     resources :meals do
       resources :foods
+      resources :meal_ingredients
     end
   end
   devise_for :users

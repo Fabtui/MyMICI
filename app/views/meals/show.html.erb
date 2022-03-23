@@ -3,4 +3,10 @@
   <%= food.name %>
 <% end %>
 
-<%= link_to "Ajouter un plat", new_day_meal_food_path(@meal.day.id, @meal.id) %>
+<%= link_to "Ajouter un plat", new_day_meal_meal_ingredient_path(@meal.day.id, @meal.id) %>
+
+<br/>
+
+<% @meal.ingredients.each do |ingredient| %>
+  <%= ingredient.name %>
+<% end %>
