@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_125728) do
+ActiveRecord::Schema.define(version: 2022_03_22_154412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2022_03_22_125728) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_days_on_user_id"
+  end
+
+  create_table "meal_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.bigint "meal_type_id"
+    t.bigint "meal_id", null: false
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meal_id"], name: "index_meals_on_meal_id"
+    t.index ["meal_type_id"], name: "index_meals_on_meal_type_id"
   end
 
   create_table "poohs", force: :cascade do |t|
@@ -49,5 +65,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_125728) do
   end
 
   add_foreign_key "days", "users"
+  add_foreign_key "meals", "meal_types"
+  add_foreign_key "meals", "meals"
   add_foreign_key "poohs", "days"
 end

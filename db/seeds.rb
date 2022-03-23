@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+MealType.create!(name: "Petit déjeuner")
+MealType.create!(name: "Déjeuner")
+MealType.create!(name: "Dîner")
+MealType.create!(name: "Encas")
+
+puts "#{MealType.count} meal_types created!"
