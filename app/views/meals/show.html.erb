@@ -7,4 +7,9 @@
 <% @meal.ingredients.each do |ingredient| %>
   <br/>
     <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, @meal.id, ingredient.id) %>
+    <% meal_ingredient = ingredient.meal_ingredients.find_by_meal_id(@meal.id) %>
+    <%= meal_ingredient.quantity.round %>g
+    <%= link_to day_meal_meal_ingredient_path(@day.id, @meal.id, ingredient.id), method: :delete do %>
+      <i class="fa-solid fa-xmark"></i>
+    <% end %>
 <% end %>
