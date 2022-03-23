@@ -9,11 +9,13 @@ class MealsController < ApplicationController
   def new
     @day = Day.find(params[:day_id])
     @meal = Meal.new
+    @food = Food.new
   end
 
   def create
     @day = Day.find(params[:day_id])
     @meal = Meal.new
+    @food = Food.new
     @meal.date = @day.date
     @meal.day_id = @day.id
     @meal.meal_type_id = params[:meal][:meal_type_id]
