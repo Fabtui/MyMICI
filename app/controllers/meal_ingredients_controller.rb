@@ -10,6 +10,7 @@ class MealIngredientsController < ApplicationController
     @day = Day.find(params[:day_id])
     @meal_ingredient = MealIngredient.new(meal_id: @meal.id)
     @meal_ingredient.ingredient_id = params[:meal_ingredient][:ingredient_id]
+    @meal_ingredient.quantity = params[:meal_ingredient][:quantity]
     if @meal_ingredient.save
       redirect_to day_meal_path(@day.id, @meal.id)
     else
