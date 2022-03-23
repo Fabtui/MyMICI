@@ -25,6 +25,12 @@ class MealIngredientsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    day = Day.find(params[:day_id])
+    ingredient = Ingredient.find(params[:id])
+    meal = Meal.find(params[:meal_id])
+    meal_ingredient = MealIngredient.where(ingredient_id: ingredient.id).find_by_meal_id(meal.id)
+    meal_ingredient.destroy
+    redirect_to day_meal_path(day.id, meal.id)
   end
 end
