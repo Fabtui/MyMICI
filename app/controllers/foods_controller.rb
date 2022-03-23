@@ -33,7 +33,9 @@ class FoodsController < ApplicationController
   def open_food_fact(name)
     require 'openfoodfacts'
     products = Openfoodfacts::Product.search(name, locale: 'fr', page_size: 1)
-    ingredients = products.first.fetch.ingredients
     raise
+    ingredients = products.first.fetch.ingredients(locale: 'fr')
   end
+
+
 end
