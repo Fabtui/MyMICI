@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_23_155717) do
+ActiveRecord::Schema.define(version: 2022_03_24_220906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2022_03_23_155717) do
     t.bigint "meal_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity", null: false
+    t.float "quantity"
     t.index ["ingredient_id"], name: "index_meal_ingredients_on_ingredient_id"
     t.index ["meal_id"], name: "index_meal_ingredients_on_meal_id"
   end
@@ -137,6 +137,21 @@ ActiveRecord::Schema.define(version: 2022_03_23_155717) do
     t.index ["day_id"], name: "index_poohs_on_day_id"
   end
 
+  create_table "preferences", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_preferences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "preference_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["preference_id"], name: "index_user_preferences_on_preference_id"
+    t.index ["user_id"], name: "index_user_preferences_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -157,4 +172,6 @@ ActiveRecord::Schema.define(version: 2022_03_23_155717) do
   add_foreign_key "meals", "days"
   add_foreign_key "meals", "meal_types"
   add_foreign_key "poohs", "days"
+  add_foreign_key "user_preferences", "preferences"
+  add_foreign_key "user_preferences", "users"
 end

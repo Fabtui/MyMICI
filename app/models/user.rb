@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :days
+  has_many :user_preferences
+  has_many :preferences, through: :user_preferences
 end
