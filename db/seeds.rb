@@ -5,12 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require_relative '../app/data/categories'
+
+CATEGORIES[5..].each do |category|
+  Preference.create!(name: category)
+end
+
+
 MealType.destroy_all
 
 MealType.create!(name: "Petit déjeuner")
 MealType.create!(name: "Déjeuner")
 MealType.create!(name: "Dîner")
 MealType.create!(name: "Encas")
+
 
 def parse_csv
   require "csv"
@@ -98,3 +106,4 @@ parse_csv
 
 puts "#{Ingredient.count} ingredients created!"
 puts "#{MealType.count} meal_types created!"
+puts "#{Preference.count} preferences created!"
