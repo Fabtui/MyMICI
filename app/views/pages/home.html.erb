@@ -1,46 +1,6 @@
-<h3>Aujourd'hui: </h3><h3><%= @day.date.strftime("%d %A %Y") %></h3>
-<% if @day.pain_rate.nil? && @day.comment.blank? %>
-  <h4>Aucune information enregistrée</h4>
-<% else %>
-  <% if @day.pain_rate %>
-    <h4>Douleur: <%= @day.pain_rate %>/10</h4>
-  <% end %>
-  <% if @day.comment %>
-    <h4><%= @day.comment %></h4>
-  <% end %>
-<% end %>
-
-<%= link_to "Comment te sents tu aujourd'hui?", edit_day_path(@day.id) %>
-
-<br/>
-
-<%= link_to "Ajouter un Pooh", new_day_pooh_path(@day.id) %>
-<br/>
-<h3><%= @day.pooh.count %> <%= 'selle'.pluralize(@day.pooh.count + 1) %> aujourd'hui</h3>
-<% @day.pooh.each do |pooh| %>
-  <% if pooh.blood %>
-    <i class="fas fa-circle red-circle"><%= pooh.rate %></i>
-  <% else %>
-    <i class="fas fa-circle green-circle"><%= pooh.rate %></i>
-  <% end %>
-<% end %>
-<br/>
-<%= link_to "Ajouter un repas", new_day_meal_path(@day.id) %>
-<br/>
-<% @day.meals.each do |meal| %>
-  <%= link_to meal.type, day_meal_path(@day.id, meal.id) %>
-  <% meal.ingredients.each do |ingredient| %>
-    <br/>
-      <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, meal.id, ingredient.id) %>
-  <% end %>
-<br/>
-<% end %>
-
+<h3>Aujourd'hui</h3>
+<%= render 'shared/day' %>
 <br/>
 <%= link_to "Voir mes journées", days_path %>
 <%= link_to "Créer une nouvelle journée", new_day_path %>
 <br/>
-
-<h3><%= @day.total('energykcal') %> <%= "kilocalorie".pluralize(@day.total('energykcal')) %> aujourd'hui</h3>
-
-<h3><%= @day.total('eau') %> <%= "grammes".pluralize(@day.total('eau')) %> d'eau
