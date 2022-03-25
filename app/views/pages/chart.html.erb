@@ -9,9 +9,10 @@
   <% @preferences.each do |preference|
     data_hash = {}
     @days.each do |day|
-      data_hash[day.date] = (day.total(preference.name)/10)
+      ajr = @categories.select {|a| a[0] === preference.name  }
+      data_hash[day.date] = (day.total(preference.name).fdiv(ajr.first[2]/5)).ceil
     end
-    data << {name: preference.name, data: data_hash}
+    data << {name: preference.name.capitalize, data: data_hash}
   end %>
 
   <%= line_chart data, download: {filename: "chart"} %>
