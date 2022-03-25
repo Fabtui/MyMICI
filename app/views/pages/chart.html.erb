@@ -1,0 +1,5 @@
+<div class="chart">
+  <% data = [] %>
+  <% @days.map { |day| data << [day.date, day.pain_rate]} %>
+  <%= line_chart data, download: {filename: "chart"} %>
+</div>
