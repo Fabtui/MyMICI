@@ -53,5 +53,5 @@
 
 <h3>Total :</h3>
 <% current_user.preferences.each do |preference| %>
-  <h3><%= preference.name.capitalize %> : <%= @day.total(preference.name) %></h3>
+  <h3><%= preference.name.capitalize %> : <%= @day.total(preference.name) %> <%= preference.unity %></h3>
 <% end %>
