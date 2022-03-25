@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :days
   has_many :user_preferences
   has_many :preferences, through: :user_preferences
+  validates :sex, presence: true
+  validates :weight, presence: true
 end
