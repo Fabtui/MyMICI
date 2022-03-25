@@ -1,5 +1,18 @@
 <div class="chart">
   <% data = [] %>
-  <% @days.map { |day| data << [day.date, day.pain_rate]} %>
+  <% data_hash = {} %>
+  <% @days.map do |day|
+    data_hash[day.date] = day.pain_rate
+  end %>
+  <% data = [{name: 'Douleur', data: data_hash}] %>
+
+  <% @preferences.each do |preference|
+    data_hash = {}
+    @days.each do |day|
+      data_hash[day.date] = (day.total(preference.name)/10)
+    end
+    data << {name: preference.name, data: data_hash}
+  end %>
+
   <%= line_chart data, download: {filename: "chart"} %>
 </div>
