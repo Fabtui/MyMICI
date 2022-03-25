@@ -18,7 +18,7 @@ MealType.create!(name: "Petit déjeuner")
 MealType.create!(name: "Déjeuner")
 MealType.create!(name: "Dîner")
 MealType.create!(name: "Encas")
-
+MealType.create!(name: "Apéritif")
 
 def parse_csv
   require "csv"
