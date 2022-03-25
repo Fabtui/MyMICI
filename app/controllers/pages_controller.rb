@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def chart
     @days = Day.all
-
+    @preferences = current_user.preferences
     # def chart(markets)
     #   chart_data = markets.map{ |m| [name: m['runner'], data: m['histories'].map{|h| [h['created_at'], 1/h['price']]}]}.flatten
     #   line_chart chart_data.each do |m|
