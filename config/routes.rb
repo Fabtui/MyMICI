@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/chart', to: 'pages#chart', as: 'chart'
   resources :user_preferences
   resources :days do
     resources :poohs
