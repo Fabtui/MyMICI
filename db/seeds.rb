@@ -8,7 +8,7 @@
 require_relative '../app/data/categories'
 
 CATEGORIES[5..].each do |category|
-  Preference.create!(name: category)
+  Preference.create!(name: category[0], unity: category[1])
 end
 
 
