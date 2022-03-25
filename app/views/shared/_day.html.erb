@@ -52,6 +52,6 @@
 <% end %>
 
 <h3>Total :</h3>
-<h3><%= @day.total('energykcal') %> <%= "kilocalorie".pluralize(@day.total('energykcal')) %></h3>
-
-<h3><%= @day.total('eau') %> <%= "grammes".pluralize(@day.total('eau')) %> d'eau
+<% current_user.preferences.each do |preference| %>
+  <h3><%= preference.name.capitalize %> : <%= @day.total(preference.name) %></h3>
+<% end %>
