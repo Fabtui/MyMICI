@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { initSelect2 } from '../components/init_select2';
 
 Rails.start()
 Turbolinks.start()
@@ -15,3 +16,7 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 import "chartkick/chart.js"
+
+document.addEventListener("turbolinks:load", function() {
+  initSelect2();
+});

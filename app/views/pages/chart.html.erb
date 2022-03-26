@@ -14,7 +14,7 @@
     data_hash = {}
     @days.each do |day|
       ajr = @categories.select { |a| a[0] === preference.name }
-      data_hash[day.date] = (day.total(preference.name).fdiv(ajr.first[2]/5)).ceil
+      data_hash[day.date] = (day.total(preference.name).fdiv(ajr.first[2])).ceil
     end
     data << {name: preference.name.capitalize, data: data_hash}
   end %>
