@@ -5,8 +5,10 @@ class UserPreferencesController < ApplicationController
   end
 
   def create
-    @user_preference = UserPreference.new(user_id: current_user.id, preference_id: params[:user_preference][:preference])
-    @user_preference.save
+    params[:user_preference][:preference].reject(&:empty?).each do |preference_id|
+      @user_preference = UserPreference.new(user_id: current_user.id, preference_id: preference_id)
+      @user_preference.save
+    end
     redirect_to new_user_preference_path
   end
 

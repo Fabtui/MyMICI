@@ -1,7 +1,7 @@
 <h1>Gérer mes valeurs à suivre</h1>
 
 <%= simple_form_for @user_preference do |f| %>
-  <%= f.input :preference, collection:@preferences, label:'Préférences', required: true, hint: 'Choississez une nouvelle valeur' %>
+  <%= f.input :preference, collection:@preferences, label:'Préférences', required: true, hint: 'Choississez une ou plusieurs nouvelle(s) valeur(s)', input_html: { class: 'select2', multiple: true }  %>
   <%= f.submit "Ajouter", class: "btn btn-primary" %>
 <% end %>
 

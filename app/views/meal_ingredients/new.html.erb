@@ -1,7 +1,7 @@
 <h1>MealIngredient#new</h1>
 
 <%= simple_form_for [@day, @meal, @meal_ingredient] do |f| %>
-  <%= f.input :ingredient_id, collection: Ingredient.all, label: 'Plat'%>
+  <%= f.input :ingredient_id, collection: Ingredient.all, label: 'Plat', input_html: { class: 'select2' } %>
   <%= f.input :quantity, label: 'Quantité (en gramme)', required: true %>
   <%= f.submit "Ajouter un plat", class: "btn btn-primary" %>
 <% end %>
