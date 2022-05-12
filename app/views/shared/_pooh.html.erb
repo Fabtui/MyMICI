@@ -1,0 +1,18 @@
+<% if @day.date.today? %>
+  <%= link_to "Ajouter un Pooh", new_day_pooh_path(@day.id) %>
+<% else %>
+  <%= link_to "Ajouter un Pooh pour cette journée", new_day_pooh_path(@day.id) %>
+<% end %>
+
+<% if @day.date.today? %>
+  <h3><%= @day.pooh.count %> <%= 'pooh'.pluralize(@day.pooh.count + 1) %> aujourd'hui</h3>
+<% else %>
+  <h3><%= @day.pooh.count %> <%= 'pooh'.pluralize(@day.pooh.count + 1) %> pour cette journée</h3>
+<% end %>
+<% @day.pooh.each do |pooh| %>
+  <% if pooh.blood %>
+    <i class="fas fa-circle red-circle"><%= pooh.rate %></i>
+  <% else %>
+    <i class="fas fa-circle green-circle"><%= pooh.rate %></i>
+  <% end %>
+<% end %>

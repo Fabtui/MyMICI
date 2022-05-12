@@ -1,0 +1,9 @@
+<%= link_to "Ajouter un repas pour cette journée", new_day_meal_path(@day.id) %>
+<br/>
+<% @day.meals.each do |meal| %>
+  <%= link_to meal.type, day_meal_path(@day.id, meal.id) %>
+  <% meal.ingredients.each do |ingredient| %>
+    <br/>
+      <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, meal.id, ingredient.id) %>
+  <% end %>
+<% end %>
