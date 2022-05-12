@@ -4,13 +4,11 @@
       <h3>Aujourd'hui</h3>
     <% end %>
     <h2><%= @day.date.strftime("%d/%m/%Y") %></h2>
-    <div class="slice-today-container">
+    <div class="slice-today-double-container">
       <%= render 'shared/state' %>
       <%= render 'shared/pooh' %>
     </div>
-    <div class="slice-today-item">
       <%= render 'shared/meal' %>
-    </div>
     <%= link_to "Voir mes journées", days_path %>
     <%= link_to "Créer une nouvelle journée", new_day_path %>
     <br/>
