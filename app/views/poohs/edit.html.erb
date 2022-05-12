@@ -1,0 +1,5 @@
+<%= simple_form_for [ @day, @pooh ] do |f| %>
+  <%= f.input :blood, label: "Sang" %>
+  <%= f.input :rate, collection: 0..10, label: "Consistance", hint: "Notez la consistance de 0 (liquide) à 10 (solide)" %>
+  <%= f.submit "Enregistrer", class: "btn btn-primary" %>
+<% end %>
