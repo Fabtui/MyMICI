@@ -14,16 +14,20 @@ class MealsController < ApplicationController
 
   def create
     @day = Day.find(params[:day_id])
-    @meal = Meal.new
-    @meal.date = @day.date
-    @meal.day_id = @day.id
-    @meal.meal_type_id = params[:meal][:meal_type_id]
-    if @meal.save
+    if @day.meals.where(meal_type_id: params[:meal][:meal_type_id]).count > 0
+      @meal = @day.meals.where(meal_type_id: params[:meal][:meal_type_id]).first
       redirect_to new_day_meal_meal_ingredient_path(@meal.day.id, @meal.id)
     else
-      render :new
+      @meal = Meal.new
+      @meal.date = @day.date
+      @meal.day_id = @day.id
+      @meal.meal_type_id = params[:meal][:meal_type_id]
+      if @meal.save
+        redirect_to new_day_meal_meal_ingredient_path(@meal.day.id, @meal.id)
+      else
+        render :new
+      end
     end
-
   end
 
   def edit
