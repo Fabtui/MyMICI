@@ -1,8 +1,11 @@
-<h1>Poohs#new</h1>
-<p>Find me in app/views/poohs/new.html.erb</p>
+<% if Date.today == @day.date %>
+  <h1>Ajouter un pooh</h1>
+<% else %>
+  <h1>Ajouter un pooh pour le <%= @day.date.strftime("%d/%m/%Y") %></h1>
+<% end %>
 
 <%= simple_form_for [ @day, @pooh ] do |f| %>
-  <%= f.input :blood %>
-  <%= f.input :rate, collection: 0..10 %>
+  <%= f.input :blood, label: "Sang" %>
+  <%= f.input :rate, collection: 0..10, label: "Consistance", hint: "Notez la consistance de 0 (liquide) à 10 (solide)" %>
   <%= f.submit "Ajouter un pooh à ma journée", class: "btn btn-primary" %>
 <% end %>

@@ -2,5 +2,5 @@
 <p>Find me in app/views/days/index.html.erb</p>
 
 <% @days.each do |day| %>
-  <%= link_to day.date.strftime("%d %A %Y"), day_path(day.id) %>
+  <%= link_to day.date.strftime("%d/%m/%Y"), day_path(day.id) %>
 <% end %>
