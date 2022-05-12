@@ -3,14 +3,10 @@
     <% if @day.date == Date.today %>
       <h3>Aujourd'hui</h3>
     <% end %>
-    <h2><%= @day.date.strftime("%d %A %Y") %></h2>
+    <h2><%= @day.date.strftime("%d/%m/%Y") %></h2>
     <div class="slice-today-container">
-      <div class="slice-today-item item-state">
-        <%= render 'shared/state' %>
-      </div>
-      <div class="slice-today-item item-pooh">
-        <%= render 'shared/pooh' %>
-      </div>
+      <%= render 'shared/state' %>
+      <%= render 'shared/pooh' %>
     </div>
     <div class="slice-today-item">
       <%= render 'shared/meal' %>

@@ -1,4 +1,4 @@
-<h1><%= @meal.type %> du <%= @meal.date.strftime("%d %A %Y") %></h1>
+<h1><%= @meal.type %> du <%= @meal.date.strftime("%d/%m/%Y") %></h1>
 
 <%= link_to "Ajouter un plat", new_day_meal_meal_ingredient_path(@meal.day.id, @meal.id) %>
 <br/>
