@@ -1,0 +1,22 @@
+<div class="slice-today-item item-days">
+  <div class="slice-today-item-head">
+    <i class="fa-solid fa-calendar-day slice-logo"></i>
+  </div>
+  <%= month_calendar do |date| %>
+
+    <% if Day.find_by_date(date) %>
+      <% day = Day.find_by_date(date) %>
+      <% link_to day_path(day.id) do %>
+      <div class="day-created">
+        <%= date.day %>
+      </div>
+      <% end %>
+    <% else %>
+      <% link_to new_day_path(date) do %>
+      <div class="day-not-created">
+        <%= date.day %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
