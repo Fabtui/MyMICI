@@ -1,4 +1,11 @@
-<h3>Total :</h3>
-<% current_user.preferences.each do |preference| %>
-  <h3><%= preference.name.capitalize %> : <%= @day.total(preference.name) %> <%= preference.unity %></h3>
-<% end %>
+<div class="slice-today-item item-total">
+  <div class="slice-today-item-head">
+    <i class="fa-solid fa-align-justify slice-logo"></i>
+    <%= link_to new_user_preference_path do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  </div>
+    <% current_user.preferences.each do |preference| %>
+      <h6><%= preference.name.capitalize %> : <strong><%= @day.total(preference.name) %> <%= preference.unity %><strong/></h6>
+    <% end %>
+</div>
