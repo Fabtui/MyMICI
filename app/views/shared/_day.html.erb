@@ -1,17 +1,15 @@
 <div id="home-container">
   <div class="home-slice slice-today">
     <% if @day.date == Date.today %>
-      <h3>Aujourd'hui</h3>
+      <h4>Aujourd'hui</h4>
     <% end %>
-    <h2><%= @day.date.strftime("%d/%m/%Y") %></h2>
+    <h3><%= @day.date.strftime("%d/%m/%Y") %></h3>
     <div class="slice-today-double-container">
       <%= render 'shared/state' %>
       <%= render 'shared/pooh' %>
     </div>
       <%= render 'shared/meal' %>
-    <%= link_to "Voir mes journées", days_path %>
-    <%= link_to "Créer une nouvelle journée", new_day_path %>
-    <br/>
+      <%= render 'shared/day_selection' %>
   </div>
   <div class="home-slice slice-total">
     <%= render 'shared/total' %>
