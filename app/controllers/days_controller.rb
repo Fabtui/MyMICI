@@ -9,13 +9,19 @@ class DaysController < ApplicationController
 
   def new
     @day = Day.new
+    @date = params[:format]
   end
 
   def create
-    @day = Day.new(day_params)
+    if params[:format].present?
+      @day = Day.new
+      @day.date = params[:format]
+    else
+      @day = Day.new(day_params)
+    end
     @day.user_id = current_user.id
     if @day.save
-      redirect_to :root
+      redirect_to day_path(@day.id)
     else
       render :new
     end

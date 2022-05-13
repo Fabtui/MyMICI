@@ -1,7 +1,8 @@
-<h1>Days#new</h1>
-<p>Find me in app/views/days/new.html.erb</p>
-
-<%= simple_form_for @day do |f| %>
-  <%= f.input :date %>
-  <%= f.submit "Créer une nouvelle journée", class: "btn btn-primary" %>
+<%= link_to :back do %>
+  <i class="fa-solid fa-arrow-left"></i>
 <% end %>
+
+<% date = Date.parse @date %>
+<p>Aucune information enregistrée pour la journée du <%= date.strftime("%d/%m/%Y") %></p>
+
+<%= link_to "Créer cette journée", days_path(date), method: :post %>
