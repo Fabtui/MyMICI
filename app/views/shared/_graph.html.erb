@@ -38,4 +38,11 @@
 
     <%= line_chart data, download: {filename: "chart"} %>
   </div>
+  <div class="slice-today-item-bottom">
+    <div class="graph-link">
+      <%= link_to chart_path do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    </div>
+  </div>
 </div>
