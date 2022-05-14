@@ -11,13 +11,22 @@ class PagesController < ApplicationController
   end
 
   def chart
-    @days = Day.all.select { |day| day.date >= (Date.today - 30) }
-    @preferences = current_user.preferences
-    require_relative '../data/categories'
-    @categories = CATEGORIES
-    # def chart(markets)
-    #   chart_data = markets.map{ |m| [name: m['runner'], data: m['histories'].map{|h| [h['created_at'], 1/h['price']]}]}.flatten
-    #   line_chart chart_data.each do |m|
+    if params["/chart"].present?
+      str_start_date = "#{params["/chart"]["start_date(1i)"]}-#{params["/chart"]["start_date(2i)"]}-#{params["/chart"]["start_date(3i)"]}"
+      str_end_date = "#{params["/chart"]["end_date(1i)"]}-#{params["/chart"]["end_date(2i)"]}-#{params["/chart"]["end_date(3i)"]}"
+      start_date = Date.parse str_start_date
+      end_date = Date.parse str_end_date
+      days = Day.all.select { |day| day.date >= start_date }
+      @days = days.select { |day| day.date <= end_date }
+    else
+      @days = Day.all.select { |day| day.date >= (Date.today - 30) }
+    end
+      @preferences = current_user.preferences
+      require_relative '../data/categories'
+      @categories = CATEGORIES
+      # def chart(markets)
+      #   chart_data = markets.map{ |m| [name: m['runner'], data: m['histories'].map{|h| [h['created_at'], 1/h['price']]}]}.flatten
+      #   line_chart chart_data.each do |m|
     #     [{name: [:name], data: [:data]}]
     #   end
     # end

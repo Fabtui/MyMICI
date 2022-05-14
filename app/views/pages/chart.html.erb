@@ -1,3 +1,8 @@
+<div class="slice-today-item-head">
+  <%= link_to new_user_preference_path do %>
+    <i class="fa-solid fa-pen-to-square"></i>
+  <% end %>
+</div>
 <div class="chart">
   <% data = [] %>
 
@@ -27,3 +32,13 @@
   end %>
   <%= line_chart data, download: {filename: "chart"} %>
 </div>
+
+<%= simple_form_for chart_date_path do |f| %>
+  <%= f.input :start_date, as: :date,
+                          order: [:day, :month, :year],
+                          label: "Date de début" %>
+  <%= f.input :end_date, as: :date,
+                          order: [:day, :month, :year],
+                          label: "Date de fin" %>
+  <%= f.submit "Valider", class: "btn btn-primary" %>
+<% end %>
