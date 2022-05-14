@@ -1,14 +1,21 @@
 <div class="chart">
   <% data = [] %>
-  <% data_hash = {} %>
+
+  <% data_hash_pooh = {} %>
   <% @days.map do |day|
-    data_hash[day.date] = day.pain_rate
+    data_hash_pooh[day.date] = day.pooh.count
   end %>
-  <% data = [{name: 'Douleur', data: data_hash}] %>
+  <% data << {name: 'Poohs', data: data_hash_pooh} %>
+
+  <% data_hash_pain = {} %>
   <% @days.map do |day|
-    data_hash[day.date] = day.pooh.count
+    if day.pain_rate.nil?
+      data_hash_pain[day.date] = 0
+    else
+      data_hash_pain[day.date] = day.pain_rate
+    end
   end %>
-  <% data = [{name: 'Poohs', data: data_hash}] %>
+  <% data << {name: 'Douleur', data: data_hash_pain} %>
 
   <% @preferences.each do |preference|
     data_hash = {}
@@ -18,6 +25,5 @@
     end
     data << {name: preference.name.capitalize, data: data_hash}
   end %>
-
   <%= line_chart data, download: {filename: "chart"} %>
 </div>

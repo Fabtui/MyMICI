@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def chart
-    @days = Day.all
+    @days = Day.all.select { |day| day.date >= (Date.today - 30) }
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
