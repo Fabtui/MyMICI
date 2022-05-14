@@ -8,16 +8,23 @@
   <div class="chart">
     <% sorted_days = Day.all.sort_by { |day| day.date } %>
     <% @days =  sorted_days.select { |day| day.date >= (Date.today - 7) } %>
-    <% data = [] %>
-    <% data_hash = {} %>
-    <% @days.map do |day|
-      data_hash[day.date] = day.pain_rate
-    end %>
-    <% data = [{name: 'Douleur', data: data_hash}] %>
-    <% @days.map do |day|
-      data_hash[day.date] = day.pooh.count
-    end %>
-    <% data = [{name: 'Poohs', data: data_hash}] %>
+      <% data = [] %>
+
+  <% data_hash_pooh = {} %>
+  <% @days.map do |day|
+    data_hash_pooh[day.date] = day.pooh.count
+  end %>
+  <% data << {name: 'Poohs', data: data_hash_pooh} %>
+
+  <% data_hash_pain = {} %>
+  <% @days.map do |day|
+    if day.pain_rate.nil?
+      data_hash_pain[day.date] = 0
+    else
+      data_hash_pain[day.date] = day.pain_rate
+    end
+  end %>
+  <% data << {name: 'Douleur', data: data_hash_pain} %>
 
     <% @preferences = current_user.preferences %>
     <% @preferences.each do |preference|
