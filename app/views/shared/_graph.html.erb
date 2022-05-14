@@ -1,0 +1,34 @@
+<div class="slice-today-item item-state">
+  <div class="slice-today-item-head">
+    <i class="fa-solid fa-chart-area slice-logo"></i>
+    <%= link_to new_user_preference_path do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  </div>
+  <div class="chart">
+    <% sorted_days = Day.all.sort_by { |day| day.date } %>
+    <% @days =  sorted_days.select { |day| day.date >= (Date.today - 7) } %>
+    <% data = [] %>
+    <% data_hash = {} %>
+    <% @days.map do |day|
+      data_hash[day.date] = day.pain_rate
+    end %>
+    <% data = [{name: 'Douleur', data: data_hash}] %>
+    <% @days.map do |day|
+      data_hash[day.date] = day.pooh.count
+    end %>
+    <% data = [{name: 'Poohs', data: data_hash}] %>
+
+    <% @preferences = current_user.preferences %>
+    <% @preferences.each do |preference|
+      data_hash = {}
+      @days.each do |day|
+        ajr = @categories.select { |a| a[0] === preference.name }
+        data_hash[day.date] = (day.total(preference.name).fdiv(ajr.first[2])).ceil
+      end
+      data << {name: preference.name.capitalize, data: data_hash}
+    end %>
+
+    <%= line_chart data, download: {filename: "chart"} %>
+  </div>
+</div>

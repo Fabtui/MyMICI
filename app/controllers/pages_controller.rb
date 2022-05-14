@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     create_day
     date = Date.today.to_s
     @day = Day.find_by_date(date)
+    @preferences = current_user.preferences
+    require_relative '../data/categories'
+    @categories = CATEGORIES
   end
 
   def chart

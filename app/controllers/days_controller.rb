@@ -5,6 +5,9 @@ class DaysController < ApplicationController
 
   def show
     @day = Day.find(params[:id])
+    @preferences = current_user.preferences
+    require_relative '../data/categories'
+    @categories = CATEGORIES
   end
 
   def new
