@@ -8,16 +8,19 @@
     </tr>
   </thead>
   <tbody>
+      <% CATEGORIES.last(67).each do |category| %>
+      <% cat = category[0].to_sym %>
     <tr>
-      <th scope="row">Energie (kJ)</th>
+      <th scope="row"> <%= category[0].capitalize %> ( <%= category[1] %> )</th>
       <% total = 0 %>
       <% @day.meals.each do |meal| %>
         <% meal.ingredients.each do |ingredient| %>
           <% meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
-          <% total += (ingredient.energykj * (meal_ingredient.quantity / 100))%>
+          <% total += ((ingredient.send cat) * (meal_ingredient.quantity / 100))%>
         <% end %>
       <% end %>
-      <td><%= total %></td>
+      <td><%= total.round %></td>
     </tr>
+      <% end %>
   </tbody>
 </table>
