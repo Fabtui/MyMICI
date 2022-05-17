@@ -44,6 +44,8 @@ class DaysController < ApplicationController
   end
 
   def details
+    require_relative '../data/categories'
+    @categories = CATEGORIES
     @day = Day.find(params[:id])
     @ingredients = Ingredient.all
   end
