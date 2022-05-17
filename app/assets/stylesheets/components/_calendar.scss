@@ -15,11 +15,11 @@
 }
 
 .simple-calendar .today {
-    background: rgb(176, 176, 248);
+  background: #bad6ff;
 }
 
 .day-created {
-  color: blue;
+  color: $primary;
   font-weight: 600;
 }
 
