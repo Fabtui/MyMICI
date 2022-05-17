@@ -30,7 +30,7 @@
   display: flex;
   justify-content: space-between;
   a {
-    color: blue;
+    font-size: 16px;
   }
 }
 
@@ -43,20 +43,20 @@
   }
 }
 
-.item-meal  {
-  height: auto;
-  a {
-    color: black;
-    text-decoration: none;
-  }
-}
+// .item-meal-link {
+//   height: auto;
+// }
 
 .item-meal .meal-type {
   text-transform: uppercase;
+  // color: black;
+  text-decoration: none;
 }
 
 .item-meal .meal-ingredient {
   margin-left: 2rem;
+  // color: black;
+  text-decoration: none;
 }
 
 .slice-logo {

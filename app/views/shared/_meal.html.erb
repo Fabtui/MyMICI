@@ -9,10 +9,11 @@
       <h6>Aucune repas enregistré pour cette journée</h6>
     <% else %>
       <% @day.meals.each do |meal| %>
-        <%= link_to meal.type, day_meal_path(@day.id, meal.id), class:"meal-type" %>
+        <%= link_to meal.type, day_meal_path(@day.id, meal.id), class:"meal-type item-meal-link" %> :
           <br/>
         <% meal.ingredients.each do |ingredient| %>
-            <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, meal.id, ingredient.id), class:"meal-ingredient" %>
+            <% meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
+            <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, meal.id, ingredient.id), class:"meal-ingredient item-meal-link" %> (<%= meal_ingredient.quantity.round %>g)
           <br/>
         <% end %>
       <% end %>
