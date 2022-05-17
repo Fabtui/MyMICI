@@ -43,6 +43,12 @@ class DaysController < ApplicationController
   def delete
   end
 
+  def details
+    @day = Day.find(params[:id])
+    @ingredients = Ingredient.all
+  end
+
+
   private
 
   def day_params
