@@ -8,4 +8,11 @@
     <% current_user.preferences.each do |preference| %>
       <h6><%= preference.name.capitalize %> : <strong><%= @day.total(preference.name) %> <%= preference.unity %><strong/></h6>
     <% end %>
+  <div class="slice-today-item-bottom">
+    <div class="graph-link">
+      <%= link_to day_details_path(@day.id) do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    </div>
+  </div>
 </div>

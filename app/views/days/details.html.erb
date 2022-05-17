@@ -1,0 +1,25 @@
+<h2>coucou</h2>
+<%= @day.date %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Eléments</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= raise %>
+    <tr>
+      <th scope="row">Energie (kJ)</th>
+      <% total = 0 %>
+      <% @day.meals.each do |meal| %>
+        <% meal.ingredients.each do |ingredient| %>
+          <% meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
+          <% total += (ingredient.energykj * (meal_ingredient.quantity / 100))%>
+        <% end %>
+      <% end %>
+      <td><%= total %></td>
+    </tr>
+  </tbody>
+</table>
