@@ -11,18 +11,24 @@
       <h6><%= @day.pooh.count %> <%= 'pooh'.pluralize(@day.pooh.count + 1) %> pour cette journée</h6>
     <% end %>
   <div class="slice-today-item-bottom">
-    <% if @day.pain_rate %>
-      <% @day.pooh.each do |pooh| %>
-        <% if pooh.blood %>
-          <%= link_to day_pooh_path(@day.id, pooh.id) do %>
-            <i class="fas fa-circle red-circle"><%= pooh.rate %></i>
-          <% end %>
-        <% else %>
-          <%= link_to day_pooh_path(@day.id, pooh.id) do %>
-            <i class="fas fa-circle green-circle"><%= pooh.rate %></i>
+    <div class="pooh-list">
+      <% if @day.pooh %>
+        <% @day.pooh.each do |pooh| %>
+          <% if pooh.blood %>
+            <%= link_to day_pooh_path(@day.id, pooh.id) do %>
+            <div class="pooh-container pooh-blood-container">
+              <h4 class="pooh-blood"><%= pooh.rate %><h4>
+            </div>
+            <% end %>
+          <% else %>
+            <%= link_to day_pooh_path(@day.id, pooh.id) do %>
+            <div class="pooh-container pooh-no-blood-container">
+              <h4 class="pooh-no-blood"><%= pooh.rate %><h4>
+            </div>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
