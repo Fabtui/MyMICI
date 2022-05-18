@@ -1,17 +1,41 @@
-<h1><%= @meal.type %> du <%= @meal.date.strftime("%d/%m/%Y") %></h1>
-
-<%= link_to "Ajouter un plat", new_day_meal_meal_ingredient_path(@meal.day.id, @meal.id) %>
-<br/>
-
-<% @meal.ingredients.each do |ingredient| %>
-  <br/>
-    <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, @meal.id, ingredient.id) %>
-    <% meal_ingredient = ingredient.meal_ingredients.find_by_meal_id(@meal.id) %>
-    <%= meal_ingredient.quantity.round %>g
-    <%= link_to day_meal_meal_ingredient_path(@day.id, @meal.id, ingredient.id), method: :delete do %>
-      <i class="fa-solid fa-xmark"></i>
+<div class="container form-container">
+  <div class="back-link">
+    <%= link_to day_path(@day.id) do %>
+      <i class="fa-solid fa-arrow-left"></i>
     <% end %>
-<% end %>
-<br/>
-<%= link_to "Supprimer ce repas", day_meal_path(@meal.day.id, @meal.id), method: :delete %>
-<br/>
+  </div>
+
+  <div class="form-title">
+    <h1><%= @meal.type %> du <%= @meal.date.strftime("%d/%m/%Y") %></h1>
+  </div>
+
+  <div class="ingredient-list">
+    <ul>
+      <% @meal.ingredients.each do |ingredient| %>
+        <li>
+            <%= link_to ingredient.name, day_meal_ingredient_path(@day.id, @meal.id, ingredient.id) %>
+            <% meal_ingredient = ingredient.meal_ingredients.find_by_meal_id(@meal.id) %>
+            (<%= meal_ingredient.quantity.round %>g)
+            <%= link_to day_meal_meal_ingredient_path(@day.id, @meal.id, ingredient.id), method: :delete do %>
+              <i class="fa-solid fa-xmark"></i>
+            <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="meal-show-buttons">
+    <h2 class="btn btn-primary" id="add-meal-btn" >Ajouter un plat</h2>
+    <%= link_to "Supprimer ce repas", day_meal_path(@meal.day.id, @meal.id), method: :delete, class: "btn btn-danger btn-annuler", data: {confirm: "Etes vous sûre de vouloir supprimer ce repas?"} %>
+  </div>
+
+  <div class="new-meal-ingredient-form">
+    <%= simple_form_for [@day, @meal, @meal_ingredient] do |f| %>
+      <%= f.input :ingredient_id, collection: Ingredient.all, label: 'Plat :', input_html: { class: 'select2' }, required: true  %>
+      <%= f.input :quantity, label: 'Quantité (en gramme)', required: true %>
+        <div class="form-buttons">
+          <h2 class="btn btn-danger btn-annuler" id="btn-annuler">Annuler</h2>
+          <%= f.submit "Ajouter", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+  </div>
