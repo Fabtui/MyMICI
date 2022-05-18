@@ -1,10 +1,6 @@
 class DaysController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  def index
-    @days = Day.all
-  end
-
   def show
     @day = Day.find(params[:id])
     @preferences = current_user.preferences
@@ -51,7 +47,6 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
     @ingredients = Ingredient.all
   end
-
 
   private
 

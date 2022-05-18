@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post '/chart', to: 'pages#chart', as: 'chart_date'
   get '/days/:id/details', to: 'days#details', as: 'day_details'
   resources :user_preferences
-  resources :days do
+  resources :days, except: [:index] do
     resources :poohs
     resources :meals do
       resources :ingredients

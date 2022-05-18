@@ -1,6 +1,0 @@
-<h1>Days#index</h1>
-<p>Find me in app/views/days/index.html.erb</p>
-
-<% @days.each do |day| %>
-  <%= link_to day.date.strftime("%d/%m/%Y"), day_path(day.id) %>
-<% end %>
