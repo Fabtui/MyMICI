@@ -1,34 +1,44 @@
-<%= @day.date %>
+<div class="container">
+  <div class="back-link">
+    <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="form-title">
+    <h3>Total du <%= @day.date %></h3>
+  </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Eléments</th>
-      <th scope="col">AJR</th>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% CATEGORIES.last(67).each do |category| %>
-        <% cat = category[0].to_sym %>
-        <tr>
-          <th scope="row"> <%= category[0].capitalize %> ( <%= category[1] %> )</th>
-          <th scope="row"> <%= category[2] %></th>
-          <% total = 0 %>
-          <% @day.meals.each do |meal| %>
-            <% meal.ingredients.each do |ingredient| %>
-              <% meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
-              <% total += ((ingredient.send cat) * (meal_ingredient.quantity / 100))%>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Eléments</th>
+        <th scope="col">AJR</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% CATEGORIES.last(67).each do |category| %>
+          <% cat = category[0].to_sym %>
+          <tr>
+            <th scope="row"> <%= category[0].capitalize %> ( <%= category[1] %> )</th>
+            <th scope="row"> <%= category[2] %></th>
+            <% total = 0 %>
+            <% @day.meals.each do |meal| %>
+              <% meal.ingredients.each do |ingredient| %>
+                <% meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
+                <% total += ((ingredient.send cat) * (meal_ingredient.quantity / 100))%>
+              <% end %>
             <% end %>
-          <% end %>
 
-          <% if total > category[2] %>
-            <td class="total-alert"><%= total.round %></td>
-          <% else %>
-            <td><%= total.round %></td>
-          <% end %>
+            <% if total > category[2] %>
+              <td class="total-alert"><%= total.round %></td>
+            <% else %>
+              <td><%= total.round %></td>
+            <% end %>
 
-        </tr>
-      <% end %>
-  </tbody>
-</table>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+
+</div>
