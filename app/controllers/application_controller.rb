@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
 
   before_action :update_allowed_parameters, if: :devise_controller?
 
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :bad_token
+  def bad_token
+    flash[:warning] = "Session expired"
+    redirect_to root_path
+  end
+
   protected
 
   def update_allowed_parameters

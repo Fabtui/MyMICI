@@ -1,4 +1,6 @@
 class DaysController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @days = Day.all
   end
@@ -16,9 +18,9 @@ class DaysController < ApplicationController
   end
 
   def create
-    if params[:format].present?
+    if params[:date].present?
       @day = Day.new
-      @day.date = params[:format]
+      @day.date = params[:date]
     else
       @day = Day.new(day_params)
     end

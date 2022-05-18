@@ -17,16 +17,14 @@
         <% end %>
       <% end %>
     <% else %>
-      <% link_to new_day_path(date) do %>
-        <% if @day.date == date %>
-          <div class="day-not-created day-today">
-            <%= date.day %>
-          </div>
-        <% else %>
-          <div class="day-not-created">
-            <%= date.day %>
-          </div>
-        <% end %>
+      <% if @day.date == date %>
+        <div class="day-not-created day-today" data-date=<%= date %> >
+          <%= date.day %>
+        </div>
+      <% else %>
+        <div class="day-not-created" data-date=<%= date %>>
+          <%= date.day %>
+        </div>
       <% end %>
     <% end %>
   <% end %>
