@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { initSelect2 } from '../components/init_select2';
 import { newDayModal } from '../components/new_day_modal';
+import { mealFormReveal } from '../components/meal_ingredient_form'
 
 Rails.start()
 Turbolinks.start()
@@ -21,4 +22,5 @@ import "chartkick/chart.js"
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
   newDayModal();
+  mealFormReveal();
 });

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :poohs
     resources :meals do
       resources :ingredients
-      resources :meal_ingredients
+      resources :meal_ingredients, only: [:new, :create, :destroy]
     end
   end
   devise_for :users

@@ -1,0 +1,68 @@
+.ingredient-list a {
+  color: $primary;
+  text-decoration: none;
+}
+
+.meal-show-buttons {
+  margin: 72px 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  a {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.new-meal-ingredient-form {
+  background-color: rgb(240, 240, 240);
+  padding: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.select2-container--default .select2-selection--single {
+  width: 50vw;
+}
+
+.new-meal-ingredient-form .form-label {
+  margin-bottom: 12px;
+  margin-right: 20px;
+}
+
+.new-meal-ingredient-form {
+  margin-top: 24px;
+  display: none;
+}
+
+.new-meal-ingredient-form .form-buttons {
+  padding-top: 16px;
+}
+
+.meal_ingredient_quantity {
+  display: flex;
+  justify-content: center;
+}
+
+.new-meal-ingredient-form .form-control {
+  background-color: white;
+  max-width: 200px;
+}
+
+.meal_ingredient_quantity .form-label {
+  display: flex;
+  align-items: center;
+  margin: 0 24px 0 0;
+}
+
+#add-meal-btn {
+  margin: 0;
+}
+
+#btn-annuler {
+  color: white;
+  margin: 0;
+}
