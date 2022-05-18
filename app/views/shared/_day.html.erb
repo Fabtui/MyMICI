@@ -17,4 +17,19 @@
   <div class="home-slice slice-graph">
     <%= render 'shared/graph' %>
   </div>
+
+</div>
+
+<div class="shadow">
+  <div class="new_day_modal">
+    <div class="container">
+      <div class="form-title modal-title">
+      </div>
+
+      <div class="form-buttons">
+        <%= link_to "Retour", :back, class: "btn btn-danger btn-annuler" %>
+        <%= link_to "Créer cette journée", days_path(@day.date), method: :post, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>
