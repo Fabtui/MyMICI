@@ -1,5 +1,15 @@
-<%= simple_form_for [ @day, @pooh ] do |f| %>
-  <%= f.input :blood, label: "Sang" %>
-  <%= f.input :rate, collection: 0..10, label: "Consistance", hint: "Notez la consistance de 0 (liquide) à 10 (solide)" %>
-  <%= f.submit "Enregistrer", class: "btn btn-primary" %>
-<% end %>
+<div class="container form-container">
+
+  <div class="form-title">
+    <h1>Editer ce pooh</h1>
+  </div>
+
+  <%= simple_form_for [ @day, @pooh ] do |f| %>
+    <%= f.input :blood, label: "Sang" %>
+    <%= f.input :rate, collection: 0..10, label: "Consistance", hint: "Notez la consistance de 0 (liquide) à 10 (solide)" %>
+      <div class="form-buttons">
+      <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
+      <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+      </div>
+  <% end %>
+</div>
