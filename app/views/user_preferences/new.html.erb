@@ -1,16 +1,23 @@
-<h1>Gérer mes valeurs à suivre</h1>
+<div class="container">
+  <div class="form-title">
+    <h1>Gérer mes valeurs à suivre</h1>
+  </div>
+  <ul class="preference-list">
+  <% current_user.preferences.each do |preference| %>
+    <li><%= preference.name %>
+        <%= link_to user_preference_path(preference.id), method: :delete do %>
+          <i class="fa-solid fa-xmark"></i>
+        <% end %>
+    </li>
+  <% end %>
+  </ul>
 
-<%= simple_form_for @user_preference do |f| %>
-  <%= f.input :preference, collection:@preferences, label:'Préférences', required: true, hint: 'Choississez une ou plusieurs nouvelle(s) valeur(s)', input_html: { class: 'select2', multiple: true }  %>
-  <%= f.submit "Ajouter", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for @user_preference do |f| %>
+    <%= f.input :preference, collection:@preferences, label:'Ajouter des valeurs à suivre', required: true, hint: 'Choississez une ou plusieurs nouvelle(s) préférence(s)', input_html: { class: 'select2', multiple: true }  %>
+      <div class="form-buttons">
+        <%= f.submit "Ajouter", class: "btn btn-primary" %>
+        <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+      </div>
+  <% end %>
 
-<ul>
-<% current_user.preferences.each do |preference| %>
-  <li><%= preference.name %>
-      <%= link_to user_preference_path(preference.id), method: :delete do %>
-        <i class="fa-solid fa-xmark"></i>
-      <% end %>
-  </li>
-<% end %>
-</ul>
+</div>
