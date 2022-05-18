@@ -11,8 +11,8 @@
   <%= f.input :rate, collection: 0..10, label: "Consistance", hint: "Notez la consistance de 0 (liquide) à 10 (solide)" %>
   <%= f.input :blood, label: "Sang" %>
   <div class="form-buttons">
-    <%= f.submit "Ajouter un pooh à ma journée", class: "btn btn-primary" %>
     <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+    <%= f.submit "Ajouter un pooh à ma journée", class: "btn btn-primary" %>
   </div>
   <% end %>
 </div>

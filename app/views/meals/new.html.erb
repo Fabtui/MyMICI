@@ -1,6 +1,13 @@
-<h1>Nouveau repas</h1>
+<div class="container">
+  <div class="form-title">
+    <h1>Nouveau repas pour le <%= @day.date.strftime("%d/%m/%Y") %> </h1>
+  </div>
 
-<%= simple_form_for [@day, @meal] do |f| %>
-  <%= f.input :meal_type_id, collection: MealType.all, label: 'Type de repas' %>
-  <%= f.submit "Ajouter un nouveau repas", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for [@day, @meal] do |f| %>
+    <%= f.input :meal_type_id, collection: MealType.all, label: 'Type de repas' %>
+      <div class="form-buttons">
+        <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+        <%= f.submit "Ajouter", class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</div>

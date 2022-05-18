@@ -15,8 +15,8 @@
   <%= simple_form_for @user_preference do |f| %>
     <%= f.input :preference, collection:@preferences, label:'Ajouter des valeurs à suivre', required: true, hint: 'Choississez une ou plusieurs nouvelle(s) préférence(s)', input_html: { class: 'select2', multiple: true }  %>
       <div class="form-buttons">
-        <%= f.submit "Ajouter", class: "btn btn-primary" %>
         <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+        <%= f.submit "Ajouter", class: "btn btn-primary" %>
       </div>
   <% end %>
 
