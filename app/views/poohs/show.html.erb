@@ -1,8 +1,19 @@
-<h4>Pooh du <%= @pooh.day.date.strftime('%d/%m/%Y') %></h4>
-<h6>Engeristré le <%= @pooh.created_at.strftime('%d/%m/%Y')%> à <%= @pooh.created_at.strftime('%Hh%M')%></h6>
-<br/>
-<h4>Consistance: <%= @pooh.rate %>/10</h4>
-<h4>Sang: <%= @pooh.blood ? "Oui" : "Non" %></h4>
+<div class="container">
+  <div class="back-link">
+    <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
 
-<%= link_to "Editer", edit_day_pooh_path(@pooh.day.id, @pooh.id) %>
-<%= link_to "Supprimer", day_pooh_path(@pooh.day.id, @pooh.id), method: :delete %>
+  <div class="form-title">
+    <h4>Pooh du <%= @pooh.day.date.strftime('%d/%m/%Y') %></h4>
+    <h6>Engeristré le <%= @pooh.created_at.strftime('%d/%m/%Y')%> à <%= @pooh.created_at.strftime('%Hh%M')%></h6>
+  </div>
+  <h4>Consistance: <%= @pooh.rate %>/10</h4>
+  <h4>Sang: <%= @pooh.blood ? "Oui" : "Non" %></h4>
+
+  <div class="form-buttons">
+    <%= link_to "Editer", edit_day_pooh_path(@pooh.day.id, @pooh.id), class:"btn btn-success" %>
+    <%= link_to "Supprimer", day_pooh_path(@pooh.day.id, @pooh.id), method: :delete, class:"btn btn-danger"  %>
+  </div>
+</div>
