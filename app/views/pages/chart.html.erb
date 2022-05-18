@@ -1,44 +1,51 @@
-<div class="slice-today-item-head">
-  <%= link_to new_user_preference_path do %>
-    <i class="fa-solid fa-pen-to-square"></i>
-  <% end %>
+<div class="container">
+  <div class="chart-header">
+    <%= link_to :back do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <%= link_to new_user_preference_path do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  </div>
+  <div class="chart">
+    <% data = [] %>
+
+    <% data_hash_pooh = {} %>
+    <% @days.map do |day|
+      data_hash_pooh[day.date] = day.pooh.count
+    end %>
+    <% data << {name: 'Poohs', data: data_hash_pooh} %>
+
+    <% data_hash_pain = {} %>
+    <% @days.map do |day|
+      if day.pain_rate.nil?
+        data_hash_pain[day.date] = 0
+      else
+        data_hash_pain[day.date] = day.pain_rate
+      end
+    end %>
+    <% data << {name: 'Douleur', data: data_hash_pain} %>
+
+    <% @preferences.each do |preference|
+      data_hash = {}
+      @days.each do |day|
+        ajr = @categories.select { |a| a[0] === preference.name }
+        data_hash[day.date] = (day.total(preference.name).fdiv(ajr.first[2])).ceil
+      end
+      data << {name: preference.name.capitalize, data: data_hash}
+    end %>
+    <%= line_chart data, download: {filename: "chart"} %>
+  </div>
+
+  <div class="chart-date-search">
+    <%= simple_form_for chart_date_path do |f| %>
+      <%= f.input :start_date, as: :date,
+                              order: [:day, :month, :year],
+                              label: "Date de début" %>
+      <%= f.input :end_date, as: :date,
+                              order: [:day, :month, :year],
+                              label: "Date de fin" %>
+      <%= f.submit "Valider", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
-<div class="chart">
-  <% data = [] %>
-
-  <% data_hash_pooh = {} %>
-  <% @days.map do |day|
-    data_hash_pooh[day.date] = day.pooh.count
-  end %>
-  <% data << {name: 'Poohs', data: data_hash_pooh} %>
-
-  <% data_hash_pain = {} %>
-  <% @days.map do |day|
-    if day.pain_rate.nil?
-      data_hash_pain[day.date] = 0
-    else
-      data_hash_pain[day.date] = day.pain_rate
-    end
-  end %>
-  <% data << {name: 'Douleur', data: data_hash_pain} %>
-
-  <% @preferences.each do |preference|
-    data_hash = {}
-    @days.each do |day|
-      ajr = @categories.select { |a| a[0] === preference.name }
-      data_hash[day.date] = (day.total(preference.name).fdiv(ajr.first[2])).ceil
-    end
-    data << {name: preference.name.capitalize, data: data_hash}
-  end %>
-  <%= line_chart data, download: {filename: "chart"} %>
-</div>
-
-<%= simple_form_for chart_date_path do |f| %>
-  <%= f.input :start_date, as: :date,
-                          order: [:day, :month, :year],
-                          label: "Date de début" %>
-  <%= f.input :end_date, as: :date,
-                          order: [:day, :month, :year],
-                          label: "Date de fin" %>
-  <%= f.submit "Valider", class: "btn btn-primary" %>
-<% end %>

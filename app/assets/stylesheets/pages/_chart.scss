@@ -1,0 +1,17 @@
+.chart-date-search {
+  margin-top: 32px;
+  padding: 0 10%;
+}
+
+.chart-header {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  a {
+    font-size: 20px;
+  }
+}
+
+.chart-header .fa-arrow-left::before {
+  color: black;
+}
