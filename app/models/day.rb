@@ -1,5 +1,6 @@
 class Day < ApplicationRecord
   validates :date, presence: true, uniqueness: true
+  validates :comment, length: {maximum: 120}, allow_blank: true
   has_many :pooh
   belongs_to :user
   has_many :meals
