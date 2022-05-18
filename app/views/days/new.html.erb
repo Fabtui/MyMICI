@@ -1,8 +1,11 @@
-<%= link_to :back do %>
-  <i class="fa-solid fa-arrow-left"></i>
-<% end %>
+<div class="container">
+  <div class="form-title">
+    <% date = Date.parse @date %>
+    <p>Aucune information enregistrée pour la journée du <%= date.strftime("%d/%m/%Y") %></p>
+  </div>
 
-<% date = Date.parse @date %>
-<p>Aucune information enregistrée pour la journée du <%= date.strftime("%d/%m/%Y") %></p>
-
-<%= link_to "Créer cette journée", days_path(date), method: :post %>
+  <div class="form-buttons">
+    <%= link_to "Retour", :back, class: "btn btn-danger btn-annuler" %>
+    <%= link_to "Créer cette journée", days_path(date), method: :post, class: "btn btn-primary" %>
+  </div>
+</div>
