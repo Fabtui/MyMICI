@@ -1,8 +1,18 @@
-<h1>Days#update</h1>
-<p>Find me in app/views/days/update.html.erb</p>
+<div class="container form-container">
+  <div class="form-title">
+    <% if @day.date == Date.today %>
+      <h1>Comment te sens-tu aujourd'hui?</h1>
+    <% else %>
+      <h1>Comment te sentais-tu le <%= @day.date.strftime("%d/%m/%Y") %> ?</h1>
+    <% end %>
+  </div>
 
-<%= simple_form_for @day do |f| %>
-  <%= f.input :pain_rate, collection: 0..10 %>
-  <%= f.input :comment %>
-  <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for @day do |f| %>
+    <%= f.input :pain_rate, collection: 0..10, label:"Douleurs", hint:"0: aucune douleur, 10: douleurs intenses" %>
+    <%= f.input :comment, label:"Commentaire", hint:"120 caractères maximum" %>
+    <div class="form-buttons">
+    <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
+    <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+    </div>
+  <% end %>
+</div>
