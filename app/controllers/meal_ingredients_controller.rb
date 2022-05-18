@@ -3,6 +3,7 @@ class MealIngredientsController < ApplicationController
     @meal_ingredient = MealIngredient.new
     @meal = Meal.find(params[:meal_id])
     @day = Day.find(params[:day_id])
+    @meal_type = MealType.find(@meal.meal_type_id)
   end
 
   def create

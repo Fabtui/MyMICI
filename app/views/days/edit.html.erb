@@ -12,8 +12,8 @@
     <%= f.input :pain_rate, collection: 0..10, label:"Douleurs", hint:"0: aucune douleur, 10: douleurs intenses" %>
     <%= f.input :comment, label:"Commentaire", hint:"120 caractères maximum" %>
     <div class="form-buttons">
-    <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
     <%= link_to "Annuler", :back, class: "btn btn-danger btn-annuler" %>
+    <%= f.submit "Sauvegarder", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
