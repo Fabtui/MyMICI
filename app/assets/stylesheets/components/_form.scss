@@ -1,5 +1,5 @@
 .form-title {
-  padding: 48px 0 24px 0;
+  padding: 36px 0 24px 0;
   text-align: center;
 }
 
@@ -7,11 +7,10 @@
   padding-top: 48px;
   display: flex;
   justify-content: space-around;
-}
-
-.btn-annuler {
-  color: white;
-  &:hover {
+  a {
     color: white;
+    &:hover {
+     color: white;
+    }
   }
 }
