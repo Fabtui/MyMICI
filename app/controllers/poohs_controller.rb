@@ -30,7 +30,11 @@ class PoohsController < ApplicationController
     redirect_to day_path(@day.id)
   end
 
-  def delete
+  def destroy
+    pooh = Pooh.find(params[:id])
+    id = pooh.day.id
+    pooh.destroy
+    redirect_to day_path(id)
   end
 
   private
