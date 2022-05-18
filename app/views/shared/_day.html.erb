@@ -2,6 +2,8 @@
   <div class="home-slice slice-today">
     <% if @day.date == Date.today %>
       <h4>Aujourd'hui</h4>
+    <% else %>
+      <h4>Journée du</h4>
     <% end %>
     <h3><%= @day.date.strftime("%d/%m/%Y") %></h3>
     <div class="slice-today-double-container">
