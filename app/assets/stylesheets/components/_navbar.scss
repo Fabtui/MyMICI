@@ -20,6 +20,10 @@
   }
 }
 
+.navbar-nav {
+  flex-direction: row;
+}
+
 .navbar-light .navbar-nav .nav-link {
   color: rgb(240, 240, 240);
   font-size: 20px;

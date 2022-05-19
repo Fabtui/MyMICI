@@ -114,3 +114,17 @@
   margin-top: 12px;
   font-size: 20px;
 }
+
+// --------------------------------RESPONSIVE--------------------------------------
+
+@media only screen and (max-width: 1250px) {
+#home-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  #home-container {
+    grid-template-columns: 1fr;
+  }
+}
