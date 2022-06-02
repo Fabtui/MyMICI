@@ -1,0 +1,15 @@
+<% if @alert.count > 0 %>
+  <div class="slice-today-item item-total">
+    <div class="slice-today-item-head">
+      <i class="fa-solid fa-triangle-exclamation slice-logo"></i>
+    </div>
+    <h6>Quantités élevées sur les 3 derniers jours :</h6>
+    <ul>
+    <% @alert.each do |alert| %>
+      <li>
+        <%= alert %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

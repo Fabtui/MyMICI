@@ -53,7 +53,7 @@ class DaysController < ApplicationController
 
   def find_alert
     if @day.pain_rate && @day.pain_rate > 4
-      days = Day.where("date > ?", @day.date - 4).where("date < ?", @day.date).order(date: :asc).first(3)
+      days = Day.where("date > ?", @day.date - 4).where("date <= ?", @day.date).order(date: :asc).first(3)
       ingredient_alert = []
       days.each do |day|
         @categories.last(@categories.count - 5).each do |category|
