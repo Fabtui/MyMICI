@@ -1,0 +1,23 @@
+    <h6>Quantités élevées sur les 3 derniers jours :</h6>
+    <ul>
+    <% @alerts.each do |alert| %>
+      <li>
+        <%= alert %>
+        <ul>
+          <% @days.each do |day| %>
+            <li>
+              <%= day.date.strftime('%d/%m/%Y') %>
+              <% @meals = Meal.where(day_id: day.id) %>
+              <% @meals.each do |meal| %>
+                <% meal.ingredients.each do |ingredient| %>
+                 <%  meal_ingredient = MealIngredient.where(meal_id: meal.id).find_by_ingredient_id(ingredient.id) %>
+                 <%  total = ((ingredient[alert].to_i * meal_ingredient.quantity) / 1000).round %>
+                 <%= ingredient.name %> <%= total %>g
+                <%  end %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+    </ul>

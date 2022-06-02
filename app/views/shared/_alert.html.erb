@@ -1,15 +1,22 @@
-<% if @alert.count > 0 %>
+<% if @alerts && @alerts.count > 0 %>
   <div class="slice-today-item item-total">
     <div class="slice-today-item-head">
       <i class="fa-solid fa-triangle-exclamation slice-logo"></i>
     </div>
     <h6>Quantités élevées sur les 3 derniers jours :</h6>
     <ul>
-    <% @alert.each do |alert| %>
+    <% @alerts.each do |alert| %>
       <li>
         <%= alert %>
       </li>
     <% end %>
     </ul>
-  </div>
+    <div class="slice-today-item-bottom">
+      <div class="graph-link">
+        <%= link_to day_alert_details_path(@day.id) do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
+      </div>
+    </div>
+    </div>
 <% end %>

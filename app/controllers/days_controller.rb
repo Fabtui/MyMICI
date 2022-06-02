@@ -6,7 +6,7 @@ class DaysController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
-    @alert = find_alert
+    @alerts = find_alert
   end
 
   def new
@@ -48,6 +48,23 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
     @ingredients = Ingredient.all
   end
+
+  def alert_details
+    @day = Day.find(params[:id])
+    @days = Day.where("date > ?", @day.date - 4).where("date <= ?", @day.date).order(date: :asc).first(3)
+    @categories = CATEGORIES
+    @alerts = find_alert
+    # @meals = []
+    # days.each do |day|
+    #   @meals += Meal.where(day_id: day.id)
+    # end
+    # @ingredients = []
+    # @meals.each do |meal|
+    #   ingredients += meal.ingredients
+    #   raise
+    # end
+  end
+
 
   private
 
