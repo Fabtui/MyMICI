@@ -43,5 +43,4 @@ class PagesController < ApplicationController
       @day.save
     end
   end
-
 end

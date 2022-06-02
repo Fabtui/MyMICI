@@ -6,6 +6,7 @@ class DaysController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
+    @alert = find_alert
   end
 
   def new
@@ -49,6 +50,20 @@ class DaysController < ApplicationController
   end
 
   private
+
+  def find_alert
+    if @day.pain_rate && @day.pain_rate > 4
+      days = Day.where("date > ?", @day.date - 4).where("date < ?", @day.date).order(date: :asc).first(3)
+      ingredient_alert = []
+      days.each do |day|
+        @categories.last(@categories.count - 5).each do |category|
+          total = day.total(category[0])
+          ingredient_alert.push(category[0]) if total > category[2]
+        end
+      end
+      return ingredient_alert.uniq
+    end
+  end
 
   def day_params
     params.require(:day).permit(:date, :comment, :pain_rate)
