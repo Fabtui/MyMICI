@@ -1,5 +1,12 @@
 <div id="home-container">
   <div class="home-slice slice-today">
+
+  <% if @alert %>
+    <% @alert.each do |alert| %>
+      <%= alert %> //
+    <% end %>
+  <% end %>
+
     <% if @day.date == Date.today %>
       <h4>Aujourd'hui</h4>
     <% else %>
