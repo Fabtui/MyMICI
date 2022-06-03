@@ -5,7 +5,7 @@
     <% end %>
   </div>
   <div class="form-title">
-    <h3>Total du <%= @day.date %></h3>
+    <h3>Total du <%= I18n.localize(@day.date, format: :long) %></h3>
   </div>
 
   <table class="table">
