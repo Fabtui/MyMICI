@@ -6,7 +6,7 @@
         <ul>
           <% @days.each do |day| %>
             <li>
-              <%= day.date.strftime('%d/%m/%Y') %>
+              <%= I18n.localize(day.date, format: :long) %>
               <% @meals = Meal.where(day_id: day.id) %>
               <% @meals.each do |meal| %>
                 <% meal.ingredients.each do |ingredient| %>

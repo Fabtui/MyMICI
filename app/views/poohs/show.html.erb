@@ -6,8 +6,8 @@
   </div>
 
   <div class="form-title">
-    <h4>Pooh du <%= @pooh.day.date.strftime('%d/%m/%Y') %></h4>
-    <h6>Engeristré le <%= @pooh.created_at.strftime('%d/%m/%Y')%> à <%= @pooh.created_at.strftime('%Hh%M')%></h6>
+    <h4>Pooh du <%= I18n.localize(@pooh.day.date, format: :long)  %></h4>
+    <h6>Engeristré le <%= I18n.localize(@pooh.created_at, format: :long) %> à <%= I18n.localize(@pooh.created_at, format: :hours) %></h6>
   </div>
   <h4>Consistance: <%= @pooh.rate %>/10</h4>
   <h4>Sang: <%= @pooh.blood ? "Oui" : "Non" %></h4>

@@ -2,9 +2,9 @@
 
   <div class="form-title">
     <% if @day.date == Date.today %>
-      <h1>Comment te sens-tu aujourd'hui?</h1>
+      <h4>Comment te sens-tu aujourd'hui?</h4>
     <% else %>
-      <h1>Comment te sentais-tu le <%= @day.date.strftime("%d/%m/%Y") %> ?</h1>
+      <h4>Comment te sentais-tu le <%= I18n.localize(@day.date, format: :long) %> ?</h4>
     <% end %>
   </div>
 

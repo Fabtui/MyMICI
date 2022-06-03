@@ -1,9 +1,9 @@
 <div class="container form-container">
   <div class="form-title">
     <% if @day.date == Date.today %>
-      <h1>Ajouter un pooh</h1>
+      <h4>Ajouter un pooh pour aujourd'hui</h4>
     <% else %>
-      <h1>Ajouter un pooh pour le <%= @day.date.strftime("%d/%m/%Y") %></h1>
+      <h4>Ajouter un pooh pour le <%= I18n.localize(@day.date, format: :long) %></h4>
     <% end %>
   </div>
 

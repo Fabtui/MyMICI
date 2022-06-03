@@ -17,8 +17,10 @@ class DaysController < ApplicationController
   def create
     if params[:date].present?
       @day = Day.new
+      raise
       @day.date = params[:date]
     else
+      raise
       @day = Day.new(day_params)
     end
     @day.user_id = current_user.id
