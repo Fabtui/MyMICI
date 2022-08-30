@@ -6,18 +6,18 @@ class DaysController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
-    # @alerts = find_alert
+    @alerts = find_alert
   end
 
   def new
-    @day = Day.new
-    @date = params[:format]
+    @day = Day.new(date: params[:date])
+    @date = params[:date]
   end
 
   def create
-    if params[:date].present?
+    if params[:format].present?
       @day = Day.new
-      @day.date = params[:date]
+      @day.date = params[:format]
     else
       @day = Day.new(day_params)
     end
@@ -28,7 +28,7 @@ class DaysController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @day = Day.find(params[:id])
   end
@@ -54,15 +54,6 @@ class DaysController < ApplicationController
     @days = Day.where("date > ?", @day.date - 4).where("date <= ?", @day.date).order(date: :asc).first(3)
     @categories = CATEGORIES
     @alerts = find_alert
-    # @meals = []
-    # days.each do |day|
-    #   @meals += Meal.where(day_id: day.id)
-    # end
-    # @ingredients = []
-    # @meals.each do |meal|
-    #   ingredients += meal.ingredients
-    #   raise
-    # end
   end
 
   private

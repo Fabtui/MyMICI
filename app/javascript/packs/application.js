@@ -21,6 +21,6 @@ import "chartkick/chart.js"
 
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
-  newDayModal();
+  // newDayModal();
   mealFormReveal();
 });
