@@ -30,12 +30,6 @@ class PagesController < ApplicationController
       @preferences = current_user.preferences
       require_relative '../data/categories'
       @categories = CATEGORIES
-      # def chart(markets)
-      #   chart_data = markets.map{ |m| [name: m['runner'], data: m['histories'].map{|h| [h['created_at'], 1/h['price']]}]}.flatten
-      #   line_chart chart_data.each do |m|
-    #     [{name: [:name], data: [:data]}]
-    #   end
-    # end
   end
 
   private

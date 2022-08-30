@@ -30,8 +30,8 @@ const newDayModal = () => {
             },
             body: "",
           })
-          // .then(document.location.href='/')
-          .then(response => console.log(response))
+          .then(document.location.href='/')
+          // .then(response => console.log(response))
         })
       } )
     } )
