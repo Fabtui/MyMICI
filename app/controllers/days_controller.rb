@@ -6,7 +6,7 @@ class DaysController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
-    @alerts = find_alert
+    # @alerts = find_alert
   end
 
   def new
@@ -73,8 +73,8 @@ class DaysController < ApplicationController
       ingredient_alert = []
       categories = @categories.last(@categories.count - 5)
       days.each do |day|
-        categories.each do |category|
-          total = day.total(category[0])
+        @categories.last(@categories.count - 5).each do |category|
+          total = day.send(category[0].to_sym)
           ingredient_alert.push(category[0]) if total > category[2]
         end
       end
