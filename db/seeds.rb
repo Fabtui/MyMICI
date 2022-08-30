@@ -11,7 +11,6 @@ CATEGORIES[5..].each do |category|
   Preference.create!(name: category[0], unity: category[1])
 end
 
-
 MealType.destroy_all
 
 MealType.create!(name: "Petit déjeuner")

@@ -6,7 +6,7 @@ class DaysController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
-    @alerts = find_alert
+    # @alerts = find_alert
   end
 
   def new
