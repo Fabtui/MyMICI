@@ -6,7 +6,7 @@
     <% end %>
   </div>
     <% current_user.preferences.each do |preference| %>
-      <% total = @day.total(preference.name) %>
+      <% total = @day.send(preference.name.to_sym) %>
       <% category = CATEGORIES.find {|c| c[0] == preference.name  } %>
 
       <% if @day.send(preference.name.to_sym) > category[2] %>
