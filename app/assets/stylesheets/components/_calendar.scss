@@ -23,7 +23,7 @@
   font-weight: 600;
 }
 
-.day-not-created {
+.day-not-created a {
   color: rgb(50, 50, 50);
   font-weight: 600;
   &:hover {
@@ -32,5 +32,6 @@
 }
 
 .day-today {
+  border-radius: 4px;
   border: 1px solid black;
 }

@@ -22,11 +22,11 @@
       <% else %>
         <% if @day.date == date %>
           <div class="day-not-created day-today" data-date=<%= date %> >
-            <%= date.day %>
+            <%= link_to date.day, new_day_path(date:date) %>
           </div>
         <% else %>
           <div class="day-not-created" data-date=<%= date %>>
-            <%= date.day %>
+            <%= link_to date.day, new_day_path(date:date) %>
           </div>
         <% end %>
       <% end %>

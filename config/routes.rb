@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/chart', to: 'pages#chart', as: 'chart'
   post '/chart', to: 'pages#chart', as: 'chart_date'
   get '/days/:id/details', to: 'days#details', as: 'day_details'
+  get '/create_day', to: 'days#create_day', as: 'day_create'
   get '/days/:id/alert_details', to: 'days#alert_details', as: 'day_alert_details'
   resources :user_preferences
   resources :days, except: [:index] do

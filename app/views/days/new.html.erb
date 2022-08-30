@@ -1,7 +1,11 @@
 <div class="container">
   <div class="form-title">
+
+  <% if @date %>
     <% date = Date.parse @date %>
-    <p>Aucune information enregistrée pour la journée du <%= I18n.localize(day.date, format: :long) %></p>
+    <p>Aucune information enregistrée pour la journée du <%= I18n.localize(@day.date, format: :long) %></p>
+  <% end %>
+
   </div>
 
   <div class="form-buttons">
