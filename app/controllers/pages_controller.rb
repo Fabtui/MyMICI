@@ -2,6 +2,12 @@ class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    # require 'json'
+    # json_url = File.read('./app/data/ingredients.json')
+    # json = JSON.parse(json_url)
+    # query = 'Vodka'
+    # ingredient = (json.select { |element| element['name'] === query }).first
+    # keys = ingredient.keys
     create_day
     date = Date.today.to_s
     @day = Day.find_by_date(date)
@@ -24,12 +30,6 @@ class PagesController < ApplicationController
       @preferences = current_user.preferences
       require_relative '../data/categories'
       @categories = CATEGORIES
-      # def chart(markets)
-      #   chart_data = markets.map{ |m| [name: m['runner'], data: m['histories'].map{|h| [h['created_at'], 1/h['price']]}]}.flatten
-      #   line_chart chart_data.each do |m|
-    #     [{name: [:name], data: [:data]}]
-    #   end
-    # end
   end
 
   private
