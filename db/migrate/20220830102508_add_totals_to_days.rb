@@ -1,71 +1,71 @@
 class AddTotalsToDays < ActiveRecord::Migration[6.1]
   def change
-    add_column :days, :energykj, :integer
-    add_column :days, :energykcal, :integer
-    add_column :days, :energyfibrekj, :integer
-    add_column :days, :energyfibrekcal, :integer
-    add_column :days, :eau, :integer
-    add_column :days, :proteinesjones, :integer
-    add_column :days, :proteines, :integer
-    add_column :days, :glucides, :integer
-    add_column :days, :lipides, :integer
-    add_column :days, :sucres, :integer
-    add_column :days, :fructose, :integer
-    add_column :days, :galactos, :integer
-    add_column :days, :glucose, :integer
-    add_column :days, :lactose, :integer
-    add_column :days, :maltose, :integer
-    add_column :days, :saccharose, :integer
-    add_column :days, :amidon, :integer
-    add_column :days, :fibres, :integer
-    add_column :days, :polyols, :integer
-    add_column :days, :cendres, :integer
-    add_column :days, :alcool, :integer
-    add_column :days, :acideorganiques, :integer
-    add_column :days, :agsatures, :integer
-    add_column :days, :agmonoinsature, :integer
-    add_column :days, :agpolyinsature, :integer
-    add_column :days, :agbutyrique, :integer
-    add_column :days, :agcaproique, :integer
-    add_column :days, :agcaprylique, :integer
-    add_column :days, :agcaprique, :integer
-    add_column :days, :aglaurique, :integer
-    add_column :days, :agmyristique, :integer
-    add_column :days, :agpalmitique, :integer
-    add_column :days, :agstearique, :integer
-    add_column :days, :agoleique, :integer
-    add_column :days, :aglinoeique, :integer
-    add_column :days, :agalphalinolenique, :integer
-    add_column :days, :agarachidoneique, :integer
-    add_column :days, :ageap, :integer
-    add_column :days, :agdha, :integer
-    add_column :days, :cholesterole, :integer
-    add_column :days, :sel, :integer
-    add_column :days, :calcium, :integer
-    add_column :days, :chlorure, :integer
-    add_column :days, :cuivre, :integer
-    add_column :days, :fer, :integer
-    add_column :days, :iode, :integer
-    add_column :days, :magnesium, :integer
-    add_column :days, :manganese, :integer
-    add_column :days, :phosphore, :integer
-    add_column :days, :potassium, :integer
-    add_column :days, :selenium, :integer
-    add_column :days, :sodium, :integer
-    add_column :days, :zinc, :integer
-    add_column :days, :retinol, :integer
-    add_column :days, :betacarotene, :integer
-    add_column :days, :vitamineD, :integer
-    add_column :days, :vitamineE, :integer
-    add_column :days, :vitamineK1, :integer
-    add_column :days, :vitamineK2, :integer
-    add_column :days, :vitamineC, :integer
-    add_column :days, :vitamineB1, :integer
-    add_column :days, :vitamineB2, :integer
-    add_column :days, :vitamineB3, :integer
-    add_column :days, :vitamineB5, :integer
-    add_column :days, :vitamineB6, :integer
-    add_column :days, :vitamineB9, :integer
-    add_column :days, :vitamineB12, :integer
+    add_column :days, :energykj, :integer, default: 0
+    add_column :days, :energykcal, :integer, default: 0
+    add_column :days, :energyfibrekj, :integer, default: 0
+    add_column :days, :energyfibrekcal, :integer, default: 0
+    add_column :days, :eau, :integer, default: 0
+    add_column :days, :proteinesjones, :integer, default: 0
+    add_column :days, :proteines, :integer, default: 0
+    add_column :days, :glucides, :integer, default: 0
+    add_column :days, :lipides, :integer, default: 0
+    add_column :days, :sucres, :integer, default: 0
+    add_column :days, :fructose, :integer, default: 0
+    add_column :days, :galactos, :integer, default: 0
+    add_column :days, :glucose, :integer, default: 0
+    add_column :days, :lactose, :integer, default: 0
+    add_column :days, :maltose, :integer, default: 0
+    add_column :days, :saccharose, :integer, default: 0
+    add_column :days, :amidon, :integer, default: 0
+    add_column :days, :fibres, :integer, default: 0
+    add_column :days, :polyols, :integer, default: 0
+    add_column :days, :cendres, :integer, default: 0
+    add_column :days, :alcool, :integer, default: 0
+    add_column :days, :acideorganiques, :integer, default: 0
+    add_column :days, :agsatures, :integer, default: 0
+    add_column :days, :agmonoinsature, :integer, default: 0
+    add_column :days, :agpolyinsature, :integer, default: 0
+    add_column :days, :agbutyrique, :integer, default: 0
+    add_column :days, :agcaproique, :integer, default: 0
+    add_column :days, :agcaprylique, :integer, default: 0
+    add_column :days, :agcaprique, :integer, default: 0
+    add_column :days, :aglaurique, :integer, default: 0
+    add_column :days, :agmyristique, :integer, default: 0
+    add_column :days, :agpalmitique, :integer, default: 0
+    add_column :days, :agstearique, :integer, default: 0
+    add_column :days, :agoleique, :integer, default: 0
+    add_column :days, :aglinoeique, :integer, default: 0
+    add_column :days, :agalphalinolenique, :integer, default: 0
+    add_column :days, :agarachidoneique, :integer, default: 0
+    add_column :days, :ageap, :integer, default: 0
+    add_column :days, :agdha, :integer, default: 0
+    add_column :days, :cholesterole, :integer, default: 0
+    add_column :days, :sel, :integer, default: 0
+    add_column :days, :calcium, :integer, default: 0
+    add_column :days, :chlorure, :integer, default: 0
+    add_column :days, :cuivre, :integer, default: 0
+    add_column :days, :fer, :integer, default: 0
+    add_column :days, :iode, :integer, default: 0
+    add_column :days, :magnesium, :integer, default: 0
+    add_column :days, :manganese, :integer, default: 0
+    add_column :days, :phosphore, :integer, default: 0
+    add_column :days, :potassium, :integer, default: 0
+    add_column :days, :selenium, :integer, default: 0
+    add_column :days, :sodium, :integer, default: 0
+    add_column :days, :zinc, :integer, default: 0
+    add_column :days, :retinol, :integer, default: 0
+    add_column :days, :betacarotene, :integer, default: 0
+    add_column :days, :vitamineD, :integer, default: 0
+    add_column :days, :vitamineE, :integer, default: 0
+    add_column :days, :vitamineK1, :integer, default: 0
+    add_column :days, :vitamineK2, :integer, default: 0
+    add_column :days, :vitamineC, :integer, default: 0
+    add_column :days, :vitamineB1, :integer, default: 0
+    add_column :days, :vitamineB2, :integer, default: 0
+    add_column :days, :vitamineB3, :integer, default: 0
+    add_column :days, :vitamineB5, :integer, default: 0
+    add_column :days, :vitamineB6, :integer, default: 0
+    add_column :days, :vitamineB9, :integer, default: 0
+    add_column :days, :vitamineB12, :integer, default: 0
   end
 end
