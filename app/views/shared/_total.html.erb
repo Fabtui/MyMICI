@@ -8,10 +8,10 @@
     <% current_user.preferences.each do |preference| %>
 
       <% category = CATEGORIES.find {|c| c[0] == preference.name  } %>
-      <% if @day.total(preference.name) > category[2] %>
-        <h6 class="total-alert"><%= preference.name.capitalize %> : <strong><%= @day.total(preference.name) %> <%= preference.unity %><strong/></h6>
+      <% if @day.send(preference.name.to_sym) > category[2] %>
+        <h6 class="total-alert"><%= preference.name.capitalize %> : <strong><%= @day.send(preference.name.to_sym) %> <%= preference.unity %><strong/></h6>
       <% else %>
-        <h6><%= preference.name.capitalize %> : <strong><%= @day.total(preference.name) %> <%= preference.unity %><strong/></h6>
+        <h6><%= preference.name.capitalize %> : <strong><%= @day.send(preference.name.to_sym) %> <%= preference.unity %><strong/></h6>
       <% end %>
 
     <% end %>

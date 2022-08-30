@@ -76,7 +76,7 @@ class DaysController < ApplicationController
       ingredient_alert = []
       days.each do |day|
         @categories.last(@categories.count - 5).each do |category|
-          total = day.total(category[0])
+          total = day.send(category[0].to_sym)
           ingredient_alert.push(category[0]) if total > category[2]
         end
       end
