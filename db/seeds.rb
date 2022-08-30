@@ -21,7 +21,7 @@ MealType.create!(name: "Apéritif")
 
 def parse_csv
   require "csv"
-  CSV.foreach("app/data/Ingredients-data.csv", headers: :first_row) do |row|
+  CSV.foreach("app/data/ingredients-data.csv", headers: :first_row) do |row|
     unless Ingredient.find_by_name(row['name']).present?
       ingredient = Ingredient.new
       ingredient.group1 = row['group1']
@@ -103,6 +103,11 @@ end
 
 parse_csv
 
+User.destroy_all
+
+User.create!(email: 'toto@mail.com', password:'azerty', birthday: Time.now, nickname: 'toto', sex: 'male', weight: 80)
+
 puts "#{Ingredient.count} ingredients created!"
 puts "#{MealType.count} meal_types created!"
 puts "#{Preference.count} preferences created!"
+puts "#{User.count} users created!"

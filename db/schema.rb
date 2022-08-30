@@ -22,73 +22,73 @@ ActiveRecord::Schema.define(version: 2022_08_30_102508) do
     t.integer "pain_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "energykj"
-    t.integer "energykcal"
-    t.integer "energyfibrekj"
-    t.integer "energyfibrekcal"
-    t.integer "eau"
-    t.integer "proteinesjones"
-    t.integer "proteines"
-    t.integer "glucides"
-    t.integer "lipides"
-    t.integer "sucres"
-    t.integer "fructose"
-    t.integer "galactos"
-    t.integer "glucose"
-    t.integer "lactose"
-    t.integer "maltose"
-    t.integer "saccharose"
-    t.integer "amidon"
-    t.integer "fibres"
-    t.integer "polyols"
-    t.integer "cendres"
-    t.integer "alcool"
-    t.integer "acideorganiques"
-    t.integer "agsatures"
-    t.integer "agmonoinsature"
-    t.integer "agpolyinsature"
-    t.integer "agbutyrique"
-    t.integer "agcaproique"
-    t.integer "agcaprylique"
-    t.integer "agcaprique"
-    t.integer "aglaurique"
-    t.integer "agmyristique"
-    t.integer "agpalmitique"
-    t.integer "agstearique"
-    t.integer "agoleique"
-    t.integer "aglinoeique"
-    t.integer "agalphalinolenique"
-    t.integer "agarachidoneique"
-    t.integer "ageap"
-    t.integer "agdha"
-    t.integer "cholesterole"
-    t.integer "sel"
-    t.integer "calcium"
-    t.integer "chlorure"
-    t.integer "cuivre"
-    t.integer "fer"
-    t.integer "iode"
-    t.integer "magnesium"
-    t.integer "manganese"
-    t.integer "phosphore"
-    t.integer "potassium"
-    t.integer "selenium"
-    t.integer "sodium"
-    t.integer "zinc"
-    t.integer "retinol"
-    t.integer "betacarotene"
-    t.integer "vitamineD"
-    t.integer "vitamineE"
-    t.integer "vitamineK1"
-    t.integer "vitamineK2"
-    t.integer "vitamineC"
-    t.integer "vitamineB1"
-    t.integer "vitamineB2"
-    t.integer "vitamineB3"
-    t.integer "vitamineB5"
-    t.integer "vitamineB6"
-    t.integer "vitamineB9"
-    t.integer "vitamineB12"
+    t.integer "energykj", default: 0
+    t.integer "energykcal", default: 0
+    t.integer "energyfibrekj", default: 0
+    t.integer "energyfibrekcal", default: 0
+    t.integer "eau", default: 0
+    t.integer "proteinesjones", default: 0
+    t.integer "proteines", default: 0
+    t.integer "glucides", default: 0
+    t.integer "lipides", default: 0
+    t.integer "sucres", default: 0
+    t.integer "fructose", default: 0
+    t.integer "galactos", default: 0
+    t.integer "glucose", default: 0
+    t.integer "lactose", default: 0
+    t.integer "maltose", default: 0
+    t.integer "saccharose", default: 0
+    t.integer "amidon", default: 0
+    t.integer "fibres", default: 0
+    t.integer "polyols", default: 0
+    t.integer "cendres", default: 0
+    t.integer "alcool", default: 0
+    t.integer "acideorganiques", default: 0
+    t.integer "agsatures", default: 0
+    t.integer "agmonoinsature", default: 0
+    t.integer "agpolyinsature", default: 0
+    t.integer "agbutyrique", default: 0
+    t.integer "agcaproique", default: 0
+    t.integer "agcaprylique", default: 0
+    t.integer "agcaprique", default: 0
+    t.integer "aglaurique", default: 0
+    t.integer "agmyristique", default: 0
+    t.integer "agpalmitique", default: 0
+    t.integer "agstearique", default: 0
+    t.integer "agoleique", default: 0
+    t.integer "aglinoeique", default: 0
+    t.integer "agalphalinolenique", default: 0
+    t.integer "agarachidoneique", default: 0
+    t.integer "ageap", default: 0
+    t.integer "agdha", default: 0
+    t.integer "cholesterole", default: 0
+    t.integer "sel", default: 0
+    t.integer "calcium", default: 0
+    t.integer "chlorure", default: 0
+    t.integer "cuivre", default: 0
+    t.integer "fer", default: 0
+    t.integer "iode", default: 0
+    t.integer "magnesium", default: 0
+    t.integer "manganese", default: 0
+    t.integer "phosphore", default: 0
+    t.integer "potassium", default: 0
+    t.integer "selenium", default: 0
+    t.integer "sodium", default: 0
+    t.integer "zinc", default: 0
+    t.integer "retinol", default: 0
+    t.integer "betacarotene", default: 0
+    t.integer "vitamineD", default: 0
+    t.integer "vitamineE", default: 0
+    t.integer "vitamineK1", default: 0
+    t.integer "vitamineK2", default: 0
+    t.integer "vitamineC", default: 0
+    t.integer "vitamineB1", default: 0
+    t.integer "vitamineB2", default: 0
+    t.integer "vitamineB3", default: 0
+    t.integer "vitamineB5", default: 0
+    t.integer "vitamineB6", default: 0
+    t.integer "vitamineB9", default: 0
+    t.integer "vitamineB12", default: 0
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
