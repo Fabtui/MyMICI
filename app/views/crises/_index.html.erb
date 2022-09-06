@@ -1,6 +1,5 @@
 <div class="slice-today-item item-state">
-  <% suspicious_ingredients = Crisis.alert %>
-  <% suspicious_ingredients.each do |i| %>
+  <% @suspicious_ingredients.each do |i| %>
     <ul>
       <li><%= i.name %></li>
     </ul>

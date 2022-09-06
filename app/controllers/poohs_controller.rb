@@ -12,6 +12,7 @@ class PoohsController < ApplicationController
     @pooh = Pooh.new(pooh_params)
     @pooh.day_id = params[:day_id]
     if @pooh.save
+      check_if_crisis(Day.find(params[:day_id]))
       redirect_to day_path(params[:day_id])
     else
       render :new
@@ -21,6 +22,7 @@ class PoohsController < ApplicationController
   def edit
     @pooh = Pooh.find(params[:id])
     @day = Day.find(@pooh.day.id)
+    check_if_crisis(Day.find(@day))
   end
 
   def update
@@ -38,6 +40,23 @@ class PoohsController < ApplicationController
   end
 
   private
+
+  def check_if_crisis(day)
+    if day.pooh.where('blood = true').exists? && day.pain_rate > 6
+      return if Crisis.where('start_date < ?', day.date).where('end_date > ?', day.date).exists?
+      if Crisis.find_by_start_date(day.date + 1)
+        crisis = Crisis.find_by_start_date(day.date + 1)
+        crisis.start_date = day.date
+        crisis.save
+      elsif Crisis.find_by_end_date(day.date - 1)
+        crisis = Crisis.find_by_end_date(day.date - 1)
+        crisis.start_date = day.date
+        crisis.save
+      else
+        Crisis.create(start_date: day.date, end_date: day.date)
+      end
+    end
+  end
 
   def pooh_params
     params.require(:pooh).permit(:blood, :rate)

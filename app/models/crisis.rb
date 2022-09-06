@@ -1,8 +1,8 @@
 class Crisis < ApplicationRecord
   def self.alert
     days = []
-    Crisis.all.each do |crisis|
-      days << Day.where('date < ?', crisis.start_date).where('date > ?', crisis.start_date - 3)
+    Crisis.all.each do |crises|
+      days << Day.where('date < ?', crises.start_date + 1).where('date > ?', crises.start_date - 3)
     end
     ingredients = []
     days.flatten.each do |day|

@@ -2,12 +2,6 @@ class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    # require 'json'
-    # json_url = File.read('./app/data/ingredients.json')
-    # json = JSON.parse(json_url)
-    # query = 'Vodka'
-    # ingredient = (json.select { |element| element['name'] === query }).first
-    # keys = ingredient.keys
     create_day
     date = Date.today.to_s
     @day = Day.find_by_date(date)
@@ -15,6 +9,7 @@ class PagesController < ApplicationController
     require_relative '../data/categories'
     @categories = CATEGORIES
     @crises = Crisis.all.sort_by(&:start_date)
+    @suspicious_ingredients = Crisis.alert
   end
 
   def chart

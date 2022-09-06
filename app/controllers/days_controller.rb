@@ -8,6 +8,7 @@ class DaysController < ApplicationController
     @categories = CATEGORIES
     @alerts = find_alert
     @crises = Crisis.all.sort_by(&:start_date)
+    @suspicious_ingredients = Crisis.alert
   end
 
   def new
@@ -61,7 +62,7 @@ class DaysController < ApplicationController
   private
 
   def check_if_crisis(day)
-    if @day.pooh.where('blood = true').exists? && @day.pain_rate > 6
+    if day.pooh.where('blood = true').exists? && day.pain_rate > 6
       return if Crisis.where('start_date < ?', day.date).where('end_date > ?', day.date).exists?
       if Crisis.find_by_start_date(day.date + 1)
         crisis = Crisis.find_by_start_date(day.date + 1)
