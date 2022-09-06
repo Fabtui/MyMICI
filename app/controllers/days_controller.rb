@@ -28,7 +28,7 @@ class DaysController < ApplicationController
       render :new
     end
   end
-  
+
   def edit
     @day = Day.find(params[:id])
   end
@@ -36,6 +36,7 @@ class DaysController < ApplicationController
   def update
     @day = Day.find(params[:id])
     @day.update(day_params)
+    check_if_crisis(@day)
     redirect_to day_path(@day)
   end
 
@@ -57,6 +58,23 @@ class DaysController < ApplicationController
   end
 
   private
+
+  def check_if_crisis(day)
+    if @day.pooh.where('blood = true').exists? && @day.pain_rate > 6
+      return if Crisis.where('start_date < ?', day.date).where('end_date > ?', day.date).exists?
+      if Crisis.find_by_start_date(day.date + 1)
+        crisis = Crisis.find_by_start_date(day.date + 1)
+        crisis.start_date = day.date
+        crisis.save
+      elsif Crisis.find_by_end_date(day.date - 1)
+        crisis = Crisis.find_by_end_date(day.date - 1)
+        crisis.start_date = day.date
+        crisis.save
+      else
+        Crisis.create(start_date: day.date, end_date: day.date)
+      end
+    end
+  end
 
   def find_alert
     if @day.pain_rate && @day.pain_rate > 4
