@@ -1,0 +1,7 @@
+<div class="slice-today-item item-state">
+  <% @crises.each do |crisis| %>
+    <ul>
+      <li><%= crisis.start_date %> - <%= crisis.end_date %></li>
+    </ul>
+  <% end %>
+</div>

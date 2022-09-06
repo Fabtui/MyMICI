@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/create_day', to: 'days#create_day', as: 'day_create'
   get '/days/:id/alert_details', to: 'days#alert_details', as: 'day_alert_details'
   resources :user_preferences
+  resources :crises
   resources :days, except: [:index] do
     resources :poohs
     resources :meals do

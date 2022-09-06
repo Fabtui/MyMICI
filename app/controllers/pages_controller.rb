@@ -14,6 +14,7 @@ class PagesController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
+    @crises = Crisis.all
   end
 
   def chart
