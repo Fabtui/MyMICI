@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @preferences = current_user.preferences
     require_relative '../data/categories'
     @categories = CATEGORIES
-    @crises = Crisis.all
+    @crises = Crisis.all.sort_by(&:start_date)
   end
 
   def chart

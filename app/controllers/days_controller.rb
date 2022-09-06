@@ -7,6 +7,7 @@ class DaysController < ApplicationController
     require_relative '../data/categories'
     @categories = CATEGORIES
     @alerts = find_alert
+    @crises = Crisis.all.sort_by(&:start_date)
   end
 
   def new
