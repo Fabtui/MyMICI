@@ -1,4 +1,6 @@
 class Crisis < ApplicationRecord
+  has_many :days
+
   def self.alert
     days = find_crisis_days
     ingredients = find_crisis_ingredients(days)
@@ -8,8 +10,11 @@ class Crisis < ApplicationRecord
 
   def self.find_crisis_days
     days = []
-    Crisis.all.each do |crises|
-      days << Day.where('date < ?', crises.start_date + 1).where('date > ?', crises.start_date - 3)
+    Crisis.all.each do |crisis|
+      days << Day.where('date < ?', crisis.start_date + 1).where('date > ?', crisis.start_date - 3)
+      days.last.each do |day|
+        day.crisis = crisis
+      end
     end
     days
   end
@@ -17,9 +22,7 @@ class Crisis < ApplicationRecord
   def self.find_crisis_ingredients(days)
     ingredients = []
     days.flatten.each do |day|
-      day.meals.each do |meal|
-        ingredients << meal.ingredients
-      end
+      day.meals.each { |meal| ingredients << meal.ingredients }
     end
     ingredients.flatten!
   end

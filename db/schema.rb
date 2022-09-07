@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_153757) do
+ActiveRecord::Schema.define(version: 2022_09_07_103201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 2022_09_06_153757) do
     t.integer "vitamineB6", default: 0
     t.integer "vitamineB9", default: 0
     t.integer "vitamineB12", default: 0
+    t.bigint "crisis_id"
+    t.index ["crisis_id"], name: "index_days_on_crisis_id"
     t.index ["user_id"], name: "index_days_on_user_id"
   end
 
@@ -243,6 +245,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_153757) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "days", "crises"
   add_foreign_key "days", "users"
   add_foreign_key "meal_ingredients", "ingredients"
   add_foreign_key "meal_ingredients", "meals"
