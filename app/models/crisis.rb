@@ -12,9 +12,7 @@ class Crisis < ApplicationRecord
     find_crisis_elements(days)
   end
 
-  private
-
-  def self.find_crisis_days
+  private_class_method def self.find_crisis_days
     days = []
     Crisis.all.each do |crisis|
       days << Day.where('date < ?', crisis.start_date + 1).where('date > ?', crisis.start_date - 3)
@@ -25,7 +23,7 @@ class Crisis < ApplicationRecord
     days.flatten!
   end
 
-  def self.find_crisis_ingredients(days)
+  private_class_method def self.find_crisis_ingredients(days)
     ingredients = []
     days.flatten.each do |day|
       day.meals.each { |meal| ingredients << meal.ingredients }
@@ -33,18 +31,12 @@ class Crisis < ApplicationRecord
     ingredients.flatten!
   end
 
-  def self.search_for_suspicious_ingredients(ingredients)
-    if ingredients.uniq.count != ingredients.count
-      suspicious_ingredients = []
-      freq = ingredients.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-      ingredients.each do |ingredient|
-        suspicious_ingredients << ingredient if freq[ingredient] > 1
-      end
-    end
+  private_class_method def self.search_for_suspicious_ingredients(ingredients)
+    suspicious_ingredients = frequencies(ingredients, 1) if ingredients.uniq.count != ingredients.count
     suspicious_ingredients.uniq
   end
 
-  def self.find_crisis_elements(days)
+  private_class_method def self.find_crisis_elements(days)
     require_relative '../data/categories'
     categories = CATEGORIES.last(CATEGORIES.count - 5)
     elements = []
@@ -53,11 +45,16 @@ class Crisis < ApplicationRecord
         elements << category[0] if day.send(category[0]) > category[2]
       end
     end
-    suspicious_elements = []
-    freq = elements.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
-    elements.each do |element|
-      suspicious_elements << element if freq[element] > 1
-    end
+    suspicious_elements = frequencies(elements, 2)
     suspicious_elements.uniq
+  end
+
+  private_class_method def self.frequencies(array, frequency)
+    elements = []
+    freq = array.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    array.each do |a|
+      elements << a if freq[a] > frequency
+    end
+    elements
   end
 end
