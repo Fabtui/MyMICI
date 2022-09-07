@@ -9,7 +9,8 @@ class PagesController < ApplicationController
     require_relative '../data/categories'
     @categories = CATEGORIES
     @crises = Crisis.all.sort_by(&:start_date)
-    @suspicious_ingredients = Crisis.alert
+    @suspicious_ingredients = Crisis.suspicious_ingredients
+    @suspicious_elements = Crisis.suspicious_elements
   end
 
   def chart

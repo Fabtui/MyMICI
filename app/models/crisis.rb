@@ -1,12 +1,18 @@
 class Crisis < ApplicationRecord
   has_many :days
 
-  def self.alert
+  def self.suspicious_ingredients
     days = find_crisis_days
     ingredients = find_crisis_ingredients(days)
-    suspicious_ingredients = search_for_suspicious_ingredients(ingredients)
-    return suspicious_ingredients
+    search_for_suspicious_ingredients(ingredients)
   end
+
+  def self.suspicious_elements
+    days = find_crisis_days
+    find_crisis_elements(days)
+  end
+
+  private
 
   def self.find_crisis_days
     days = []
@@ -16,7 +22,7 @@ class Crisis < ApplicationRecord
         day.crisis = crisis
       end
     end
-    days
+    days.flatten!
   end
 
   def self.find_crisis_ingredients(days)
@@ -36,5 +42,22 @@ class Crisis < ApplicationRecord
       end
     end
     suspicious_ingredients.uniq
+  end
+
+  def self.find_crisis_elements(days)
+    require_relative '../data/categories'
+    categories = CATEGORIES.last(CATEGORIES.count - 5)
+    elements = []
+    days.each do |day|
+      categories.each do |category|
+        elements << category[0] if day.send(category[0]) > category[2]
+      end
+    end
+    suspicious_elements = []
+    freq = elements.inject(Hash.new(0)) { |h,v| h[v] += 1; h }
+    elements.each do |element|
+      suspicious_elements << element if freq[element] > 1
+    end
+    suspicious_elements.uniq
   end
 end
