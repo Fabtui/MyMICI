@@ -9,4 +9,11 @@
       <li><%= crisis.start_date %> - <%= crisis.end_date %></li>
     </ul>
   <% end %>
+
+  <%  @suspicious_elements.each do |element| %>
+    <ul>
+      <li><%= element %></li>
+    </ul>
+  <% end %>
+
 </div>
