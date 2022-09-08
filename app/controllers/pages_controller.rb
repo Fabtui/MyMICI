@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @crises = Crisis.all.sort_by(&:start_date)
     @suspicious_ingredients = Crisis.suspicious_ingredients
     @suspicious_elements = Crisis.suspicious_elements
+    raise
   end
 
   def chart
