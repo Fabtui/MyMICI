@@ -18,6 +18,7 @@ class DaysController < ApplicationController
   end
 
   def create
+    raise
     if params[:format].present?
       @day = Day.new
       @day.date = params[:format]
